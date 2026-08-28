@@ -72,8 +72,9 @@ img {
 }
 
 main > section {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 900px;
+  /* Note: content-visibility was removed to prevent large blank-space
+     reserves and scroll jumps on shorter sections. Sections now render
+     at their natural height for a predictable, clean layout. */
 }
 
 a {
@@ -2285,17 +2286,19 @@ body { letter-spacing: -0.01em; }
 
 .intro__grid, .experience__grid, .location__grid, .contact__grid { gap: clamp(2.6rem, 6vw, 6rem); align-items: center; }
 .intro__image, .experience__image, .location__map, .contact__map { border-radius: 6px; box-shadow: 0 24px 90px rgba(23, 21, 18, 0.12); }
-.intro__image img, .experience__image img { min-height: 640px; }
+.intro__image img { aspect-ratio: 4/5; max-height: 720px; width: 100%; }
+.experience__image img { aspect-ratio: 4/3; width: 100%; }
 .also-known-as { font-size: 0.88rem; }
 
 .quick-facts { margin-top: 2.4rem; padding: 0; background: transparent; border: 0; box-shadow: none; }
 .quick-facts h3 { display: none; }
-.quick-facts dl { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem 1.8rem; }
+.quick-facts dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem 2rem; }
 .quick-facts div { padding: 1rem 0 0; border-top: 1px solid rgba(23, 21, 18, 0.16); border-bottom: 0; }
-.quick-facts dt { color: var(--text-primary); font-family: var(--font-heading); font-size: 1.35rem; line-height: 1.05; letter-spacing: -0.02em; text-transform: none; }
-.quick-facts dd { color: var(--text-muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.quick-facts dt { color: var(--text-muted); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.quick-facts dd { margin: 0.15rem 0 0; color: var(--text-primary); font-family: var(--font-heading); font-size: 1.25rem; line-height: 1.15; letter-spacing: -0.02em; }
 
 .experience { margin-top: clamp(4rem, 8vw, 8rem); padding: clamp(3rem, 6vw, 5.5rem); background: #171512; color: var(--white); border: 0; }
+.experience .section__label { color: rgba(255, 255, 255, 0.6); }
 .experience .section__title, .experience p, .experience__list li { color: var(--white); }
 .experience__list li { border-color: rgba(255, 255, 255, 0.18); opacity: 0.86; }
 
@@ -2332,7 +2335,7 @@ body { letter-spacing: -0.01em; }
   .hero__content { margin-left: 1.2rem; width: calc(100% - 2.4rem); }
   .hero__title { font-size: clamp(3rem, 11vw, 6.6rem); }
   .quick-facts dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .intro__image img, .experience__image img { min-height: 420px; }
+  .intro__image img { max-height: none; }
   .experience { padding: 3rem 1.2rem; }
   html, body { overflow-x: hidden; }
 }
@@ -2351,7 +2354,7 @@ body { letter-spacing: -0.01em; }
   .mobile-menu__links a { font-size: 1.45rem; }
 
   /* Hero */
-  .hero { min-height: 680px; height: 92vh; padding-bottom: 5.4rem; align-items: center; }
+  .hero { min-height: 680px; height: 92vh; padding-bottom: 5.4rem; }
   .hero__content { margin-left: 1.2rem; width: calc(100% - 2.4rem); }
   .hero__overlay { background: linear-gradient(180deg, rgba(10, 8, 6, 0.38) 0%, rgba(10, 8, 6, 0.22) 40%, rgba(10, 8, 6, 0.8) 100%), linear-gradient(90deg, rgba(10, 8, 6, 0.62), rgba(10, 8, 6, 0.16)); }
   .hero__title { font-size: clamp(3rem, 13vw, 4.6rem); line-height: 1.0; margin-bottom: 1.1rem; }
@@ -2370,7 +2373,7 @@ body { letter-spacing: -0.01em; }
   /* Quick facts */
   .quick-facts { margin-top: 1.8rem; }
   .quick-facts dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.2rem; }
-  .quick-facts dt { font-size: 1.2rem; }
+  .quick-facts dd { font-size: 1.15rem; }
 
   /* Platforms */
   .platforms { padding: 1.4rem 0; }
@@ -2412,7 +2415,68 @@ body { letter-spacing: -0.01em; }
 @media (max-width: 420px) {
   .hero__actions .btn { min-height: 50px; }
   .quick-facts dl { grid-template-columns: 1fr; gap: 0.7rem 0; }
-  .quick-facts dt { font-size: 1.15rem; }
+  .quick-facts dd { font-size: 1.1rem; }
   .benefits-grid { grid-template-columns: 1fr; }
   .mobile-bar__item .label { font-size: 0.62rem; }
+}
+
+/* =========================================
+   Final Desktop + Mobile Polish
+   ========================================= */
+
+/* Desktop hero height: blend of full viewport with safe bottom stop */
+@media (min-width: 769px) {
+  .hero { height: min(100vh, 980px); }
+}
+
+/* Section headers need consistent bottom spacing for the editorial look */
+.section__header { margin-bottom: 2.6rem; }
+.section__header.text-center .section__subtitle { margin-left: auto; margin-right: auto; }
+
+/* Intro image shouldn't exceed a graceful height on large screens */
+.intro__image img { object-fit: cover; }
+
+/* Experience panel breathing room inside container */
+.experience__image img { object-fit: cover; }
+
+/* Benefits cards at 5-up were too cramped; give them more air */
+.benefits-grid { gap: clamp(1rem, 2.4vw, 1.6rem); }
+.benefit-item { padding: 1.8rem 1.3rem; }
+
+/* Booking clarity cards: keep clean editorial borders */
+.booking-clarity__card { padding: 1.6rem 0; }
+
+/* Reviews grid breathes on large screens */
+.reviews__grid { gap: clamp(1.4rem, 3vw, 2.4rem); }
+
+/* Final CTA content scale */
+.final-cta__actions { gap: 1rem; }
+
+@media (max-width: 1024px) {
+  .hero__title { line-height: 0.95; }
+}
+
+@media (max-width: 768px) {
+  /* Keep hero content at the bottom-left, clear of the fixed navbar */
+  .hero { padding-top: 4.2rem; align-items: flex-end !important; justify-content: flex-start; }
+  .hero__content { padding-top: 0; }
+  .hero__title { letter-spacing: -0.05em; }
+
+  /* Footer links wrap for narrow screens */
+  .footer__links { flex-wrap: wrap; justify-content: center; gap: 1rem 1.4rem; }
+
+  /* Amenity groups give compact single column spacing */
+  .amenities__grid { gap: 2rem; }
+
+  /* Booking clarity cards stack with subtle separators on mobile */
+  .booking-clarity__card { padding: 1.2rem 0; }
+
+  /* Availability widget buttons align with inputs */
+  .availability-widget .btn { width: 100%; }
+
+  /* Gallery single column spacing on phones */
+  .gallery__grid { grid-auto-rows: 200px; }
+
+  /* Enquiry form submit stays full width */
+  .enquiry-form .btn { width: 100%; }
 }
