@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://merakihillsidevilla.com/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/hero.jpg</image:loc>
+      <image:title>Meraki Hillside Villa Panchgani</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/pool.jpg</image:loc>
+      <image:title>Infinity Pool with Valley View Panchgani</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/living-room.jpg</image:loc>
+      <image:title>Luxury Living Room at Meraki Hillside Villa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/bedroom.jpg</image:loc>
+      <image:title>Bedroom Suite at Meraki Hillside Villa Panchgani</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/kitchen.jpg</image:loc>
+      <image:title>Kitchen and Dining Area at Meraki Hillside Villa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/bathroom.jpg</image:loc>
+      <image:title>Private Bathroom at Meraki Hillside Villa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/garden.jpg</image:loc>
+      <image:title>Private Lawn and Garden at Meraki Hillside Villa Panchgani</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://merakihillsidevilla.com/images/night.jpg</image:loc>
+      <image:title>Meraki Hillside Villa Night View Panchgani</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://merakihillsidevilla.com/4bhk-villa-panchgani/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://merakihillsidevilla.com/villa-with-pool-panchgani/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://merakihillsidevilla.com/pet-friendly-villa-panchgani/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://merakihillsidevilla.com/luxury-villa-near-mahabaleshwar/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://merakihillsidevilla.com/private-villa-khingar-panchgani/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

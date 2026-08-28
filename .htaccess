@@ -1,0 +1,35 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.merakihillsidevilla\.com$ [NC]
+RewriteRule ^(.*)$ https://merakihillsidevilla.com/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?merakihillsidevilla\.co\.in$ [NC]
+RewriteRule ^about-us/?$ https://merakihillsidevilla.com/ [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?merakihillsidevilla\.co\.in$ [NC]
+RewriteRule ^package/?$ https://merakihillsidevilla.com/#pricing [R=301,L]
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType text/plain "access plus 1 hour"
+</IfModule>
+
+ErrorDocument 404 /404.html

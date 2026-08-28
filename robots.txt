@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /humans.txt
+Allow: /security.txt
+Sitemap: https://merakihillsidevilla.com/sitemap.xml

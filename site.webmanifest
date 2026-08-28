@@ -1,0 +1,12 @@
+{
+  "name": "Meraki Hillside Villa Panchgani",
+  "short_name": "Meraki Villa",
+  "description": "Private 4BHK luxury villa in Khingar, Panchgani with infinity pool and in-house cook service.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F5",
+  "theme_color": "#FAF8F5",
+  "lang": "en-IN",
+  "categories": ["travel", "lifestyle"]
+}
