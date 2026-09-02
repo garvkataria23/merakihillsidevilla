@@ -640,3 +640,22 @@ document.addEventListener('DOMContentLoaded', () => {
         yearEl.textContent = new Date().getFullYear();
     }
 });
+
+// === Instagram Embeds: Lazy Load & Re-process ===
+(function() {
+  const igSection = document.getElementById('instagram');
+  if (!igSection) return;
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '200px' });
+  
+  observer.observe(igSection);
+})();
