@@ -3343,12 +3343,14 @@ iframe {
 }
 
 /* =========================================
-   DESKTOP VIEWPORT SNAP & COMPACT SCREEN FIT
+   DESKTOP 100% STRICT VIEWPORT FIT & MANDATORY SNAP
    ========================================= */
 @media (min-width: 1025px) {
   html {
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 80px;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 70px;
+    height: 100%;
+    overflow-y: scroll;
   }
 
   section.section,
@@ -3359,42 +3361,120 @@ iframe {
   }
 
   .section {
-    min-height: calc(100vh - 80px);
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3rem 0;
+    padding: 4.5rem 0 2rem;
     box-sizing: border-box;
   }
 
   .section > .container {
     width: 100%;
+    max-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .section__header {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section__title {
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    margin-bottom: 0.3rem;
+  }
+
+  .section__subtitle {
+    font-size: 0.95rem;
   }
 
   .intro__grid,
   .experience__grid,
   .location__grid,
   .contact__grid {
-    gap: 3.5rem;
+    gap: 2.2rem;
   }
 
   .intro__image img,
   .experience__image img {
-    max-height: 480px;
+    max-height: 380px;
     object-fit: cover;
   }
 
-  .gallery__grid {
-    grid-auto-rows: 180px;
+  .quick-facts {
+    margin-top: 1rem;
+    padding: 0.8rem;
   }
 
-  .planner__box,
-  .enquiry-form,
-  .availability-widget {
-    padding: 2rem 2.5rem;
+  .quick-facts dl {
+    gap: 0.5rem 1rem;
+  }
+
+  .quick-facts dd {
+    font-size: 1.05rem;
+  }
+
+  .gallery__grid {
+    grid-auto-rows: 150px;
+    gap: 0.6rem;
+  }
+
+  .planner__box {
+    padding: 1.4rem 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .planner__slider-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .season-cards {
+    gap: 1rem;
+  }
+
+  .season-card {
+    padding: 1.3rem 1.2rem;
+  }
+
+  .amenities__grid {
+    gap: 1.2rem;
+  }
+
+  .amenity-group ul li {
+    padding: 0.35rem 0;
+    font-size: 0.84rem;
+  }
+
+  .reviews__grid {
+    gap: 1.2rem;
+  }
+
+  .review-card {
+    padding: 1.2rem;
+  }
+
+  .faq-list {
+    max-height: 65vh;
+    overflow-y: auto;
+  }
+
+  .faq-question {
+    padding: 0.8rem 0;
+  }
+
+  .enquiry-form {
+    padding: 1.5rem 2rem;
+  }
+
+  .contact__map {
+    min-height: 260px;
+  }
+
+  .final-cta {
+    height: 100vh;
   }
 }
