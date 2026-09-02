@@ -260,27 +260,29 @@ document.addEventListener('DOMContentLoaded', () => {
             const guests = parseInt(plannerSlider.value, 10);
             if (plannerGuestCount) plannerGuestCount.textContent = guests;
 
-            // Calculate required bedrooms (max 4 bedrooms, roughly 4 guests per room)
-            const bedsNeeded = Math.min(4, Math.max(1, Math.ceil(guests / 4)));
-            
-            if (plannerBeds) {
-                if (bedsNeeded <= 1) {
-                    plannerBeds.textContent = "1 Bedroom Suite (Intimate)";
-                } else if (bedsNeeded === 2) {
-                    plannerBeds.textContent = "2 Bedroom Suites (Cozy)";
-                } else if (bedsNeeded === 3) {
-                    plannerBeds.textContent = "3 Bedroom Suites (Spacious)";
-                } else {
-                    plannerBeds.textContent = "4 Full Bedroom Suites (Whole Villa)";
-                }
+            // Room distribution breakdown per room for 4BHK
+            let bedText = "";
+            if (guests <= 6) {
+                bedText = "4 BHK Villa (2-2-1-1 per room)";
+            } else if (guests <= 8) {
+                bedText = "All 4 BHK (2 guests per room)";
+            } else if (guests <= 10) {
+                bedText = "All 4 BHK (3-3-2-2 per room)";
+            } else if (guests <= 12) {
+                bedText = "All 4 BHK (3 guests per room)";
+            } else if (guests <= 14) {
+                bedText = "All 4 BHK (4-4-3-3 per room)";
+            } else {
+                bedText = "All 4 BHK (4 guests per room)";
             }
 
+            if (plannerBeds) plannerBeds.textContent = bedText;
             if (plannerMeals) plannerMeals.textContent = `Cook service for ${guests} guests`;
             if (plannerAccess) plannerAccess.textContent = `100% Exclusive Private Villa Access`;
 
             if (plannerWaBtn) {
                 plannerWaBtn.textContent = `💬 Enquire for ${guests} Guests on WhatsApp`;
-                plannerWaBtn.href = `https://wa.me/917777066774?text=Hi!%20I%20used%20the%20Group%20Planner%20on%20your%20website%20and%20would%20like%20to%20enquire%20for%20${guests}%20guests%20(${bedsNeeded}%20Bedrooms).`;
+                plannerWaBtn.href = `https://wa.me/917777066774?text=Hi!%20I%20used%20the%20Group%20Planner%20on%20your%20website%20and%20would%20like%20to%20enquire%20for%20${guests}%20guests%20(${encodeURIComponent(bedText)}).`;
             }
         }
 
