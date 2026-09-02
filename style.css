@@ -3341,3 +3341,60 @@ iframe {
     }
   }
 }
+
+/* =========================================
+   DESKTOP VIEWPORT SNAP & COMPACT SCREEN FIT
+   ========================================= */
+@media (min-width: 1025px) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 80px;
+  }
+
+  section.section,
+  .hero,
+  .final-cta {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 0;
+    box-sizing: border-box;
+  }
+
+  .section > .container {
+    width: 100%;
+  }
+
+  .section__header {
+    margin-bottom: 1.8rem;
+  }
+
+  .intro__grid,
+  .experience__grid,
+  .location__grid,
+  .contact__grid {
+    gap: 3.5rem;
+  }
+
+  .intro__image img,
+  .experience__image img {
+    max-height: 480px;
+    object-fit: cover;
+  }
+
+  .gallery__grid {
+    grid-auto-rows: 180px;
+  }
+
+  .planner__box,
+  .enquiry-form,
+  .availability-widget {
+    padding: 2rem 2.5rem;
+  }
+}
