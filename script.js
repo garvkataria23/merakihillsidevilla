@@ -641,10 +641,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// === Instagram Embeds: Lazy Load & Re-process ===
+// === Instagram Showcase: Controls & Smooth Drag Scroll ===
 (function() {
   const igSection = document.getElementById('instagram');
   if (!igSection) return;
+  
+  const carousel = document.getElementById('igCarousel');
+  const prevBtn = document.getElementById('igPrevBtn');
+  const nextBtn = document.getElementById('igNextBtn');
+
+  if (carousel && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      const cardWidth = carousel.querySelector('.instagram__item')?.offsetWidth || 340;
+      carousel.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const cardWidth = carousel.querySelector('.instagram__item')?.offsetWidth || 340;
+      carousel.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
+    });
+
+    // Mouse Drag-to-Scroll support
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      carousel.style.cursor = 'grabbing';
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      isDown = false;
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mouseup', () => {
+      isDown = false;
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+  }
   
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
