@@ -1387,6 +1387,23 @@ ul { list-style: none; }
 /* =========================================
    16. Video Tour (.video-tour)
    ========================================= */
+.video-player {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #000;
+}
+
+.video-player video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
 .video-placeholder {
   max-width: 780px;
   aspect-ratio: 16/9;
@@ -2986,6 +3003,15 @@ iframe {
   }
 
   /* Video tour */
+  .video-player {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .video-player video {
+    border-radius: 12px;
+  }
+
   .video-placeholder {
     aspect-ratio: 16/9;
     max-width: 100%;
