@@ -1,6 +1,33 @@
+# Robots.txt for Meraki Hillside Villa
+# Optimized for Google, Bing, DuckDuckGo, Yahoo, and AI/Generative Search Engines (AEO/GEO)
+
 User-agent: *
 Allow: /
 Allow: /llms.txt
+Allow: /llms-full.txt
 Allow: /humans.txt
 Allow: /security.txt
+
+# Explicit AI Search Crawler Permissions (AEO / GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
 Sitemap: https://merakihillsidevilla.com/sitemap.xml

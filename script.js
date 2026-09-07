@@ -1,68 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // =========================================
-    // 1. Custom Luxury Ring Cursor (Desktop Only)
-    // =========================================
-    const customCursor = document.getElementById('customCursor');
-    const cursorDot = document.querySelector('.custom-cursor__dot');
-    const cursorRing = document.querySelector('.custom-cursor__ring');
-    const cursorText = document.getElementById('cursorText');
-
-    if (customCursor && window.innerWidth > 1024) {
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-            customCursor.classList.add('active');
-        });
-
-        function renderCursor() {
-            ringX += (mouseX - ringX) * 0.18;
-            ringY += (mouseY - ringY) * 0.18;
-            cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
-            requestAnimationFrame(renderCursor);
-        }
-        renderCursor();
-
-        document.querySelectorAll('[data-cursor]').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                const text = el.getAttribute('data-cursor');
-                cursorText.textContent = text || 'VIEW';
-                customCursor.classList.add('hovered');
-            });
-            el.addEventListener('mouseleave', () => {
-                customCursor.classList.remove('hovered');
-            });
-        });
-    }
-
-    // =========================================
-    // 2. Top Scroll Progress Bar
-    // =========================================
-    const scrollProgress = document.getElementById('scrollProgress');
-    window.addEventListener('scroll', () => {
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        if (totalHeight > 0) {
-            const progress = (window.scrollY / totalHeight) * 100;
-            if (scrollProgress) {
-                scrollProgress.style.width = `${progress}%`;
-            }
-        }
-    }, { passive: true });
-
-    // =========================================
-    // 3. Preloader Fadeout
-    // =========================================
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('preloader--hidden');
-        }, 600);
-    }
 
     // =========================================
     // 4. Hero Background Auto Slideshow
@@ -87,16 +24,43 @@ document.addEventListener('DOMContentLoaded', () => {
         goToSlide(next);
     }
 
-    if (heroSlides.length > 0) {
-        slideTimer = setInterval(nextSlide, 5500);
+        // Mobile Touch Swipe for Hero Slides
+        const heroSectionEl = document.querySelector('.hero');
+        if (heroSectionEl) {
+            let heroTouchStartX = 0;
+            let heroTouchEndX = 0;
 
-        heroDots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                clearInterval(slideTimer);
-                goToSlide(i);
-                slideTimer = setInterval(nextSlide, 5500);
-            });
+            heroSectionEl.addEventListener('touchstart', (e) => {
+                heroTouchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            heroSectionEl.addEventListener('touchend', (e) => {
+                heroTouchEndX = e.changedTouches[0].screenX;
+                if (heroTouchStartX - heroTouchEndX > 40) {
+                    // Swipe Left -> Next Slide
+                    clearInterval(slideTimer);
+                    nextSlide();
+                    slideTimer = setInterval(nextSlide, 5500);
+                } else if (heroTouchEndX - heroTouchStartX > 40) {
+                    // Swipe Right -> Prev Slide
+                    clearInterval(slideTimer);
+                    const prev = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+                    goToSlide(prev);
+                    slideTimer = setInterval(nextSlide, 5500);
+                }
+            }, { passive: true });
+        }
+
+    heroDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            clearInterval(slideTimer);
+            goToSlide(parseInt(dot.getAttribute('data-slide'), 10));
+            slideTimer = setInterval(nextSlide, 5500);
         });
+    });
+
+    if (heroSlides.length) {
+        slideTimer = setInterval(nextSlide, 5500);
     }
 
     // =========================================
@@ -245,50 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { passive: true });
 
-    // =========================================
-    // 10. Interactive Villa Capacity & Group Planner
-    // =========================================
-    const plannerSlider = document.getElementById('plannerSlider');
-    const plannerGuestCount = document.getElementById('plannerGuestCount');
-    const plannerBeds = document.getElementById('plannerBeds');
-    const plannerMeals = document.getElementById('plannerMeals');
-    const plannerAccess = document.getElementById('plannerAccess');
-    const plannerWaBtn = document.getElementById('plannerWaBtn');
-
-    if (plannerSlider) {
-        function updatePlanner() {
-            const guests = parseInt(plannerSlider.value, 10);
-            if (plannerGuestCount) plannerGuestCount.textContent = guests;
-
-            // Room distribution breakdown per room for 4BHK
-            let bedText = "";
-            if (guests <= 6) {
-                bedText = "4 BHK Villa (2-2-1-1 per room)";
-            } else if (guests <= 8) {
-                bedText = "All 4 BHK (2 guests per room)";
-            } else if (guests <= 10) {
-                bedText = "All 4 BHK (3-3-2-2 per room)";
-            } else if (guests <= 12) {
-                bedText = "All 4 BHK (3 guests per room)";
-            } else if (guests <= 14) {
-                bedText = "All 4 BHK (4-4-3-3 per room)";
-            } else {
-                bedText = "All 4 BHK (4 guests per room)";
-            }
-
-            if (plannerBeds) plannerBeds.textContent = bedText;
-            if (plannerMeals) plannerMeals.textContent = `Cook service for ${guests} guests`;
-            if (plannerAccess) plannerAccess.textContent = `100% Exclusive Private Villa Access`;
-
-            if (plannerWaBtn) {
-                plannerWaBtn.textContent = `💬 Enquire for ${guests} Guests on WhatsApp`;
-                plannerWaBtn.href = `https://wa.me/917777066774?text=Hi!%20I%20used%20the%20Group%20Planner%20on%20your%20website%20and%20would%20like%20to%20enquire%20for%20${guests}%20guests%20(${encodeURIComponent(bedText)}).`;
-            }
-        }
-
-        plannerSlider.addEventListener('input', updatePlanner);
-        updatePlanner();
-    }
 
     // =========================================
     // 11. Food Sample Menu Modal Open / Close
@@ -413,54 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 15. Social Proof Toast Cycle
+    // 15. Universal Lightbox Gallery & Photo Viewer (Every Photo Clickable)
     // =========================================
-    const socialToast = document.getElementById('socialProofToast');
-    const toastTitle = document.getElementById('toastTitle');
-    const toastDesc = document.getElementById('toastDesc');
-    const toastTime = document.getElementById('toastTime');
-    const toastClose = document.getElementById('toastClose');
-
-    const toastData = [
-        { title: "Recent Enquiry", desc: "Sneha P. from Mumbai enquired for 12 guests", time: "2 minutes ago" },
-        { title: "Verified Booking", desc: "Rahul M. from Pune booked Meraki for 3 nights", time: "15 minutes ago" },
-        { title: "Dates Checked", desc: "Amit K. checked availability for Diwali weekend", time: "30 minutes ago" },
-        { title: "5-Star Review", desc: "Parth left a ★★★★★ review on Google Maps", time: "1 hour ago" }
-    ];
-
-    let toastIndex = 0;
-
-    function showToast() {
-        if (!socialToast || window.innerWidth <= 768) return;
-        const item = toastData[toastIndex];
-        if (toastTitle) toastTitle.textContent = item.title;
-        if (toastDesc) toastDesc.textContent = item.desc;
-        if (toastTime) toastTime.textContent = item.time;
-
-        socialToast.classList.add('show');
-
-        setTimeout(() => {
-            if (socialToast) socialToast.classList.remove('show');
-        }, 5000);
-
-        toastIndex = (toastIndex + 1) % toastData.length;
-    }
-
-    if (socialToast && window.innerWidth > 768) {
-        setTimeout(showToast, 6000);
-        setInterval(showToast, 16000);
-
-        if (toastClose) {
-            toastClose.addEventListener('click', () => {
-                socialToast.classList.remove('show');
-            });
-        }
-    }
-
-    // =========================================
-    // 16. Lightbox Gallery & Touch Swipe Navigation
-    // =========================================
-    const galleryItems = document.querySelectorAll('.gallery__item');
+    const photoTargets = document.querySelectorAll(
+        '.gallery__item, .intro__image, .floor-row__image, .experience__image, .itinerary__image, .season-experience__image, .ig-card, [data-full]'
+    );
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
@@ -472,21 +349,62 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const galleryImages = [];
 
-    galleryItems.forEach((item, index) => {
-        const img = item.querySelector('img');
+    photoTargets.forEach((el) => {
+        const img = el.querySelector('img');
+        let fullSrc = el.getAttribute('data-full');
+
         if (img) {
+            if (!fullSrc) {
+                fullSrc = img.currentSrc || img.src;
+            }
+
+            let titleText = '';
+            const captionTitle = el.querySelector('.caption-title, .floor-title, .season-name, .day-title, h3, h4');
+            if (captionTitle) {
+                titleText = captionTitle.textContent;
+            } else if (img.alt) {
+                titleText = img.alt;
+            }
+
+            const imageIndex = galleryImages.length;
             galleryImages.push({
-                src: img.src,
-                alt: img.alt
+                src: fullSrc,
+                alt: titleText || img.alt || 'Meraki Hillside Villa Photo'
             });
-            item.addEventListener('click', () => {
-                openLightbox(index);
+
+            el.style.cursor = 'pointer';
+
+            el.addEventListener('click', (e) => {
+                if (el.classList.contains('ig-card')) {
+                    e.preventDefault();
+                }
+                openLightbox(imageIndex);
+            });
+        }
+    });
+
+    // Hero background slide click to enlarge
+    const heroSlideEls = document.querySelectorAll('.hero__slide');
+    heroSlideEls.forEach((slide) => {
+        const bgUrlMatch = slide.style.backgroundImage.match(/url\(['"]?(.*?)['"]?\)/);
+        if (bgUrlMatch && bgUrlMatch[1]) {
+            const fullSrc = bgUrlMatch[1];
+            const slideIndex = galleryImages.length;
+            galleryImages.push({
+                src: fullSrc,
+                alt: 'Meraki Hillside Villa Hero View'
+            });
+            slide.style.cursor = 'pointer';
+            slide.addEventListener('click', (e) => {
+                if (e.target.classList.contains('hero__slide') || e.target.classList.contains('hero__overlay')) {
+                    openLightbox(slideIndex);
+                }
             });
         }
     });
 
     function openLightbox(index) {
-        if (galleryImages.length === 0) return;
+        if (!lightbox || galleryImages.length === 0) return;
         currentIndex = index;
         updateLightbox();
         lightbox.classList.add('active');
@@ -496,16 +414,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function closeLightbox() {
+        if (!lightbox) return;
         lightbox.classList.remove('active');
         lightbox.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     }
 
     function updateLightbox() {
+        if (!lightboxImg) return;
         const image = galleryImages[currentIndex];
         lightboxImg.src = image.src;
         lightboxImg.alt = image.alt;
-        lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+        if (lightboxCounter) {
+            lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+        }
     }
 
     function showNextImage() {
@@ -552,8 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     // 17. FAQ Accordion
     // =========================================
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach((item, index) => {
+    const faqRows = document.querySelectorAll('.faq-row, .faq-item');
+    faqRows.forEach((item, index) => {
         const questionBtn = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
         if (questionBtn) {
@@ -565,7 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             questionBtn.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                faqItems.forEach(i => {
+                faqRows.forEach(i => {
                     i.classList.remove('active');
                     const btn = i.querySelector('.faq-question');
                     if (btn) btn.setAttribute('aria-expanded', 'false');
@@ -650,67 +572,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// === Instagram Showcase: Controls & Smooth Drag Scroll ===
+
+// === Cinematic Video Poster Interaction ===
 (function() {
-  const igSection = document.getElementById('instagram');
-  if (!igSection) return;
-  
-  const carousel = document.getElementById('igCarousel');
-  const prevBtn = document.getElementById('igPrevBtn');
-  const nextBtn = document.getElementById('igNextBtn');
+  const videoPosterContainer = document.getElementById('videoPosterContainer');
+  const videoPlayerContainer = document.getElementById('videoPlayerContainer');
+  const villaTourVideo = document.getElementById('villaTourVideo');
 
-  if (carousel && prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-      const cardWidth = carousel.querySelector('.instagram__item')?.offsetWidth || 340;
-      carousel.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
-    });
-
-    nextBtn.addEventListener('click', () => {
-      const cardWidth = carousel.querySelector('.instagram__item')?.offsetWidth || 340;
-      carousel.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
-    });
-
-    // Mouse Drag-to-Scroll support
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    carousel.addEventListener('mousedown', (e) => {
-      isDown = true;
-      carousel.style.cursor = 'grabbing';
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
-
-    carousel.addEventListener('mouseleave', () => {
-      isDown = false;
-      carousel.style.cursor = 'grab';
-    });
-
-    carousel.addEventListener('mouseup', () => {
-      isDown = false;
-      carousel.style.cursor = 'grab';
-    });
-
-    carousel.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      carousel.scrollLeft = scrollLeft - walk;
+  if (videoPosterContainer && videoPlayerContainer && villaTourVideo) {
+    videoPosterContainer.addEventListener('click', function() {
+      videoPosterContainer.style.display = 'none';
+      videoPlayerContainer.style.display = 'block';
+      villaTourVideo.play();
     });
   }
-  
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        if (window.instgrm && window.instgrm.Embeds) {
-          window.instgrm.Embeds.process();
-        }
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '200px' });
-  
-  observer.observe(igSection);
 })();
+
+
