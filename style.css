@@ -3208,41 +3208,52 @@ p:last-child {
    ========================================================================== */
 .final-booking {
   position: relative;
-  padding: 6rem 0;
-  background-image: url('../images/pool-bg.jpg'); /* Example fallback */
+  min-height: 100vh;
+  padding: clamp(4rem, 6vw, 6.5rem) 0;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
-}
-
-.final-booking::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(12, 11, 9, 0.85);
+  display: grid;
+  align-items: center;
 }
 
 .final-booking {
   position: relative;
-  padding: 5rem 0;
   overflow: hidden;
+}
+
+.final-booking__bg,
+.final-booking__bg picture,
+.final-booking__img,
+.final-booking__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.final-booking__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.final-booking__overlay {
+  background:
+    linear-gradient(90deg, rgba(250, 248, 245, 0.1), rgba(250, 248, 245, 0.48) 38%, rgba(250, 248, 245, 0.2)),
+    linear-gradient(180deg, rgba(250, 248, 245, 0.28), rgba(47, 70, 52, 0.12));
 }
 
 .concierge-card {
   position: relative;
-  background-color: rgba(248, 246, 242, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(145deg, rgba(255, 253, 249, 0.94), rgba(248, 244, 237, 0.9));
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.78);
   border-radius: 24px;
-  padding: 3.5rem 3.5rem 2.5rem 3.5rem;
-  max-width: 760px;
+  padding: clamp(2.6rem, 4.5vw, 4.4rem) clamp(2rem, 4.3vw, 4.2rem) 2rem;
+  max-width: 860px;
   margin: 0 auto;
   z-index: 2;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 32px 70px rgba(28, 24, 20, 0.16);
 }
 
 .concierge-eyebrow-wrapper {
@@ -3270,18 +3281,19 @@ p:last-child {
 
 .concierge-title {
   font-family: var(--font-heading);
-  font-size: 2.75rem;
+  font-size: clamp(3rem, 4.9vw, 5.1rem);
   color: #1a1918;
   font-weight: 400;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
   margin-bottom: 0.75rem;
 }
 
 .concierge-subtitle {
   color: #5c564e;
-  font-size: 1rem;
+  font-size: clamp(1.08rem, 1.45vw, 1.35rem);
   line-height: 1.5;
-  margin-bottom: 2rem;
+  margin-bottom: 2.4rem;
 }
 
 .concierge-form__grid {
@@ -3319,13 +3331,13 @@ p:last-child {
 
 .concierge-form input,
 .concierge-form textarea {
-  background-color: #f4f1ea;
-  border: 1px solid #e2ddd3;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(130, 105, 79, 0.26);
   border-radius: 8px;
-  padding: 0.85rem 1rem;
+  padding: 1.08rem 1.25rem;
   color: #2b2723;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   transition: all 0.2s ease;
 }
 
@@ -3360,7 +3372,7 @@ p:last-child {
   color: #ffffff;
   border: none;
   border-radius: 50px;
-  padding: 1rem 2rem;
+  padding: 1.15rem 2.7rem;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 1.2px;
@@ -3390,7 +3402,7 @@ p:last-child {
   color: #4a4237;
   border: 1px solid #9c8e7d;
   border-radius: 50px;
-  padding: 1rem 2.5rem;
+  padding: 1.15rem 3.1rem;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 1.2px;
@@ -3434,14 +3446,14 @@ p:last-child {
 /* Side Decorative Typography */
 .concierge-side-text {
   position: absolute;
-  z-index: 2;
-  color: rgba(255, 255, 255, 0.85);
+  z-index: 3;
+  color: rgba(59, 45, 35, 0.78);
   pointer-events: none;
 }
 
 .concierge-side-text--left {
-  left: 3.5rem;
-  top: 5rem;
+  left: clamp(2rem, 4vw, 4.5rem);
+  top: clamp(5rem, 9vw, 7.5rem);
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -3454,25 +3466,25 @@ p:last-child {
 .concierge-side-text--left .concierge-side-line {
   width: 24px;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(59, 45, 35, 0.54);
   margin-top: 0.75rem;
 }
 
 .concierge-side-text--right-top {
-  right: 4rem;
-  top: 4rem;
+  right: clamp(2rem, 5vw, 5rem);
+  top: clamp(4rem, 7vw, 5.5rem);
   display: flex;
   flex-direction: column;
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 2.2rem;
+  font-size: clamp(2.1rem, 3.6vw, 3.6rem);
   line-height: 1.1;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(139, 92, 52, 0.72);
 }
 
 .concierge-side-text--right-bottom {
-  right: 3.5rem;
-  bottom: 5rem;
+  right: clamp(2rem, 4vw, 4.2rem);
+  bottom: clamp(5rem, 10vw, 8rem);
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -3487,7 +3499,7 @@ p:last-child {
 .concierge-side-text--right-bottom .concierge-side-line {
   width: 24px;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(59, 45, 35, 0.54);
   margin-top: 0.75rem;
 }
 
