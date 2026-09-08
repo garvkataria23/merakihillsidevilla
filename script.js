@@ -219,7 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const openMenuBtns = [
         document.getElementById('openMenuBtn'),
         document.getElementById('openMenuBtn2'),
-        document.getElementById('openMenuBtn3')
+        document.getElementById('openMenuBtn3'),
+        document.getElementById('openMenuBtn4')
     ];
 
     openMenuBtns.forEach(btn => {
@@ -247,35 +248,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuModalOverlay) menuModalOverlay.addEventListener('click', closeMenuModal);
 
     // =========================================
-    // 12. Copy to Clipboard Toast
+    // 12. Copy to Clipboard
     // =========================================
-    const copyToast = document.getElementById('copyToast');
     const copyPhone = document.getElementById('copyPhone');
     const copyAddress = document.getElementById('copyAddress');
 
-    function triggerCopy(text, label) {
+    function triggerCopy(text) {
         if (navigator.clipboard) {
-            navigator.clipboard.writeText(text).then(() => {
-                if (copyToast) {
-                    copyToast.textContent = `${label} copied!`;
-                    copyToast.classList.add('show');
-                    setTimeout(() => {
-                        copyToast.classList.remove('show');
-                    }, 2500);
-                }
-            });
+            navigator.clipboard.writeText(text);
         }
     }
 
     if (copyPhone) {
         copyPhone.addEventListener('click', () => {
-            triggerCopy('+917777066774', 'Phone number');
+            triggerCopy('+917777066774');
         });
     }
 
     if (copyAddress) {
         copyAddress.addEventListener('click', () => {
-            triggerCopy('Khingar, Panchgani, Maharashtra 412805', 'Address');
+            triggerCopy('Khingar, Panchgani, Maharashtra 412805');
         });
     }
 
@@ -336,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 15. Universal Lightbox Gallery & Photo Viewer (Every Photo Clickable)
     // =========================================
     const photoTargets = document.querySelectorAll(
-        '.gallery__item, .intro__image, .floor-row__image, .experience__image, .itinerary__image, .season-experience__image, .ig-card, [data-full]'
+        '.gallery__item, .happy-guest, .intro__image, .floor-row__image, .experience__image, .itinerary__image, .season-experience__image, .ig-card, [data-full]'
     );
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -501,7 +493,102 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
-    // 18. Back to Top Button
+    // 18. Google Reviews - Continuous 1x Carousel
+    // =========================================
+    const googleReviewCarousel = document.getElementById('googleReviewCarousel');
+    const googleReviewTrack = document.getElementById('googleReviewTrack');
+    const googleReviewToggle = document.getElementById('googleReviewToggle');
+
+    const googleReviews = [
+        { name: 'mayank khiya', when: '4 months ago', text: 'A refreshing stay in a beautifully maintained villa with clean, spacious rooms, thoughtful interiors and peaceful outdoor spaces.' },
+        { name: 'Samiksha', when: '3 months ago', text: 'A lovely family stay in a spacious four-bedroom villa with an infinity pool, modern rooms and mesmerizing valley views.' },
+        { name: 'Jay Bhavsar', when: '2 months ago', text: 'Beautiful, well-maintained villa with a helpful caretaker, excellent food and a coordinating owner. We would definitely return.' },
+        { name: 'Akshay A Rane', when: '3 months ago', text: 'Helpful staff, a cooperative chef, delicious food and wonderful morning views from the bedrooms. The overall stay was very good.' },
+        { name: 'Disha jain', when: '3 months ago', text: 'A spacious villa with gorgeous views and cooperative caretakers. Access is steep and electricity can fluctuate, but everything else was great.' },
+        { name: 'Amit Kumar Mishra', when: '3 months ago', text: 'A wonderful family stay with amazing views, attentive caretakers, delicious food and a host who accommodated every need.' },
+        { name: 'Yamini thakur mejare', when: 'a year ago', text: 'Beautiful decor, clean rooms, a lovely pool, tasty food and genuinely good service made the visit memorable and great value.' },
+        { name: 'Rahul Sharma', when: '2 years ago', text: 'A family-friendly villa with table tennis, a cozy pool, scenic bathrooms, delicious food and beautiful views from every bedroom.' },
+        { name: 'Sonali Joshi', when: 'a year ago', text: 'An amazing, clean stay with kind caretakers, homely food, fresh farm vegetables and a memorable traditional chul menu.' },
+        { name: 'Amar Godbole', when: '3 months ago', text: 'A spacious and beautiful villa for a friends getaway, with good food offered at a very reasonable cost.' },
+        { name: 'Nirav Khiya', when: '4 months ago', text: 'A beautiful location for quality family time, complemented by very good food that feels comforting and home-cooked.' },
+        { name: 'Sândëép Pítålíyã', when: 'a year ago', text: 'The approach road is narrow and steep, so guests driving a four-wheeler should arrive carefully and preferably during daylight.' },
+        { name: 'Allan Sethi', when: '3 years ago', text: 'Clean, spacious and well maintained with helpful staff and a great valley location. The steep approach needs careful driving.' },
+        { name: 'Priyank Gandhi', when: '3 years ago', text: 'Even more beautiful than the photos, with lavish interiors and a chef whose food rivals restaurants. A wonderful experience.' },
+        { name: 'Yasmeen 1976', when: '2 years ago', text: 'A beautifully designed villa that leaves a strong impression from the moment you arrive.' },
+        { name: 'Amit Balchandani', when: '2 years ago', text: 'Two excellent nights in a well-designed, clean bungalow with comfortable rooms, outstanding caretakers and superb homely meals.' },
+        { name: 'Riya Rasane', when: 'a year ago', text: 'An amazing overall experience with a lovely location and enjoyable food.' },
+        { name: 'Ishika Kataria', when: '4 years ago', text: 'A beautiful stay with lovely views, perfectly suited to a relaxed family vacation.' },
+        { name: 'Charmi Gami', when: '4 years ago', text: 'A warm five-star greeting from a happy Google guest.' },
+        { name: 'vimmi Choudhry', when: '4 years ago', text: 'A wonderfully designed bungalow with comfortable rooms, excellent caretakers and unforgettable homemade theplas. Highly recommended.' },
+        { name: 'Megha Chandnani', when: '4 years ago', text: 'Perfect for spending time with loved ones, thanks to the amazing views, spacious rooms and welcoming family-getaway atmosphere.' },
+        { name: 'Ridhi Umrania', when: '4 years ago', text: 'Mesmerizing views, a superb ambience, generous space and excellent amenities make this villa a perfect escape.' },
+        { name: 'Meenal Shahapurkar', when: '3 years ago', text: 'Two relaxing nights in a spotless villa with wonderful views, courteous caretakers and a loving chef. A revisit is already tempting.' },
+        { name: 'Alan Rodrigues', when: '4 years ago', text: 'Wonderful staff, amazing food and memorable chef-prepared dinners left the whole family eager to return.' },
+        { name: 'Harshini Chowdary', when: '2 years ago', text: 'A peaceful, beautifully designed bungalow with super-clean rooms, great staff and tasty food. An awesome overall stay.' },
+        { name: 'Sumera Shaikh', when: '2 years ago', text: 'One of the best villas this guest has experienced so far.' },
+        { name: 'Sakshi Agarwal', when: '4 years ago', text: 'A huge yet cozy villa with outstanding views and warm, kind staff. The experience inspired an immediate desire to return.' },
+        { name: 'Nitin Singh', when: 'a year ago', text: 'Good caretaking, excellent food, clean spaces and easy access to popular attractions make this a convenient holiday base.' },
+        { name: 'Sriharsha Meka', when: '2 years ago', text: 'A great place to stay and unwind with friends or family.' },
+        { name: 'Gaurav singh', when: 'a year ago', text: 'A well-kept villa in a convenient location near popular sights, supported by good food and caring staff.' }
+    ];
+
+    if (googleReviewCarousel && googleReviewTrack && googleReviewToggle) {
+        const googleReviewsUrl = 'https://www.google.com/search?sca_esv=a6de26ecf3f9c9fb&sxsrf=APpeQnv380kJkJ2aaVkLxccr-anZcA00Wg:1788898543675&q=meraki+hillside+villa&spell=1&sa=X&ved=2ahUKEwjPkfCx5t-WAxVDUGwGHRsMA9kQBSgAegQIERAB&biw=1396&bih=663&dpr=1.38#lrd=0x3bc26970ea800c0d:0x3bf3bb56323caee5,1,,,,';
+        const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map(part => part[0]).join('').toUpperCase();
+
+        [...googleReviews, ...googleReviews].forEach((review, index) => {
+            const card = document.createElement('article');
+            card.className = 'review-card google-review-card';
+            card.setAttribute('aria-hidden', index >= googleReviews.length ? 'true' : 'false');
+            card.innerHTML = `
+                <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+                <blockquote class="quote-body">${review.text}</blockquote>
+                <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                <div class="quote-attribution">
+                    <span class="review-platform review-platform--google">${initials(review.name)}</span>
+                    <div><span class="author-name">${review.name}</span><span class="author-source">Google review &bull; ${review.when}</span></div>
+                </div>
+                <a class="google-review-card__source" href="${googleReviewsUrl}" target="_blank" rel="noopener">View on Google</a>`;
+            googleReviewTrack.appendChild(card);
+        });
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let reviewOffset = 0;
+        let reviewLastFrame = performance.now();
+        let reviewPausedByUser = false;
+        let reviewPausedByHover = false;
+        const reviewSpeed = 42;
+
+        const animateReviews = (now) => {
+            const elapsed = Math.min(now - reviewLastFrame, 64);
+            reviewLastFrame = now;
+            const loopWidth = googleReviewTrack.scrollWidth / 2;
+
+            if (!reduceMotion.matches && !reviewPausedByUser && !reviewPausedByHover && !document.hidden && loopWidth > 0) {
+                reviewOffset = (reviewOffset + (reviewSpeed * elapsed / 1000)) % loopWidth;
+                googleReviewTrack.style.transform = `translate3d(${-reviewOffset}px, 0, 0)`;
+            }
+
+            requestAnimationFrame(animateReviews);
+        };
+
+        googleReviewCarousel.addEventListener('mouseenter', () => { reviewPausedByHover = true; });
+        googleReviewCarousel.addEventListener('mouseleave', () => { reviewPausedByHover = false; });
+        googleReviewCarousel.addEventListener('focusin', () => { reviewPausedByHover = true; });
+        googleReviewCarousel.addEventListener('focusout', () => { reviewPausedByHover = false; });
+
+        googleReviewToggle.addEventListener('click', () => {
+            reviewPausedByUser = !reviewPausedByUser;
+            googleReviewToggle.setAttribute('aria-pressed', String(reviewPausedByUser));
+            googleReviewToggle.setAttribute('aria-label', reviewPausedByUser ? 'Play review carousel' : 'Pause review carousel');
+            googleReviewToggle.textContent = reviewPausedByUser ? 'Play' : 'Pause';
+        });
+
+        requestAnimationFrame(animateReviews);
+    }
+
+    // =========================================
+    // 19. Back to Top Button
     // =========================================
     const backToTopBtn = document.getElementById('backToTop');
     if (backToTopBtn) {
@@ -522,29 +609,104 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 19. Enquiry Form & Availability WhatsApp Handlers
+    // 20. Enquiry Form & Availability WhatsApp Handlers
     // =========================================
     const enquiryForm = document.getElementById('enquiryForm');
     if (enquiryForm) {
+        const nameInput = document.getElementById('form-name');
+        const phoneInput = document.getElementById('form-phone');
+        const checkinInput = document.getElementById('form-checkin');
+        const checkoutInput = document.getElementById('form-checkout');
+        const guestsInput = document.getElementById('form-guests');
+        const messageInput = document.getElementById('form-message');
+
+        const parseDate = (value) => {
+            const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+            if (!match) return null;
+            return new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+        };
+
+        const formatDate = (value) => {
+            const date = parseDate(value);
+            if (!date) return value;
+            return new Intl.DateTimeFormat('en-IN', {
+                weekday: 'short',
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric'
+            }).format(date);
+        };
+
+        const today = new Date();
+        const todayISO = [
+            today.getFullYear(),
+            String(today.getMonth() + 1).padStart(2, '0'),
+            String(today.getDate()).padStart(2, '0')
+        ].join('-');
+        checkinInput.min = todayISO;
+        checkoutInput.min = todayISO;
+
+        checkinInput.addEventListener('change', () => {
+            checkoutInput.min = checkinInput.value || todayISO;
+            checkoutInput.setCustomValidity('');
+            if (checkoutInput.value && checkoutInput.value <= checkinInput.value) {
+                checkoutInput.value = '';
+            }
+        });
+
+        checkoutInput.addEventListener('input', () => checkoutInput.setCustomValidity(''));
+
         enquiryForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('form-name').value;
-            const phone = document.getElementById('form-phone').value;
-            const checkin = document.getElementById('form-checkin').value;
-            const checkout = document.getElementById('form-checkout').value;
-            const guests = document.getElementById('form-guests').value;
-            const message = document.getElementById('form-message').value;
+            const name = nameInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const checkin = checkinInput.value;
+            const checkout = checkoutInput.value;
+            const guests = guestsInput.value.trim();
+            const message = messageInput.value.trim();
 
-            let text = `Hi! I would like to enquire about staying at Meraki Hillside Villa.\n\n`;
-            text += `👤 *Name:* ${name}\n`;
-            text += `📞 *Phone:* ${phone}\n`;
-            if (checkin) text += `📅 *Check-in:* ${checkin}\n`;
-            if (checkout) text += `📅 *Check-out:* ${checkout}\n`;
-            if (guests) text += `👥 *Guests:* ${guests}\n`;
-            if (message) text += `📝 *Notes:* ${message}\n`;
+            if (!enquiryForm.checkValidity() || !name || !phone || !guests) {
+                enquiryForm.reportValidity();
+                return;
+            }
+
+            const checkinDate = parseDate(checkin);
+            const checkoutDate = parseDate(checkout);
+            if (checkinDate && checkoutDate && checkoutDate <= checkinDate) {
+                checkoutInput.setCustomValidity('Check-out date must be after the check-in date.');
+                checkoutInput.reportValidity();
+                return;
+            }
+
+            const nights = checkinDate && checkoutDate
+                ? Math.round((checkoutDate - checkinDate) / 86400000)
+                : null;
+
+            const lines = [
+                '\uD83C\uDFE1 *NEW STAY ENQUIRY*',
+                '*Meraki Hillside Villa, Panchgani*',
+                '',
+                '*GUEST DETAILS*',
+                `Name: ${name}`,
+                `WhatsApp / Phone: ${phone}`,
+                '',
+                '*STAY DETAILS*',
+                `Check-in: ${formatDate(checkin)}`,
+                `Check-out: ${formatDate(checkout)}`,
+                ...(nights ? [`Duration: ${nights} night${nights === 1 ? '' : 's'}`] : []),
+                `Guests: ${guests}`,
+                '',
+                '*REQUIREMENTS / NOTES*',
+                message || 'No additional requirements shared.',
+                '',
+                'Please confirm availability and share the tariff.',
+                '_Enquiry sent from the Meraki Hillside Villa website._'
+            ];
+
+            const text = lines.join('\n');
 
             const waUrl = `https://wa.me/917777066774?text=${encodeURIComponent(text)}`;
-            window.open(waUrl, '_blank');
+            window.open(waUrl, '_blank', 'noopener');
         });
     }
 
@@ -588,4 +750,87 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 
+// === Happy Guests Fan Carousel ===
+(function() {
+  const carousel = document.querySelector('[data-fan-carousel]');
+  if (!carousel) return;
 
+  const cards = Array.from(carousel.querySelectorAll('.happy-guest'));
+  const shell = carousel.closest('.happy-guests__fan-shell');
+  const prevButton = shell.querySelector('[data-guest-prev]');
+  const nextButton = shell.querySelector('[data-guest-next]');
+  const currentLabel = shell.querySelector('[data-guest-current]');
+  const totalLabel = shell.querySelector('[data-guest-total]');
+  const total = cards.length;
+  let activeIndex = 0;
+  let touchStartX = 0;
+
+  if (totalLabel) totalLabel.textContent = String(total).padStart(2, '0');
+
+  const getDistance = (index) => {
+    let distance = index - activeIndex;
+    if (distance > total / 2) distance -= total;
+    if (distance < -total / 2) distance += total;
+    return distance;
+  };
+
+  const updateCarousel = () => {
+    cards.forEach((card, index) => {
+      const distance = getDistance(index);
+      const depth = Math.abs(distance);
+      const isVisible = depth <= 2;
+      const isActive = distance === 0;
+
+      card.style.setProperty('--fan-offset', distance);
+      card.style.setProperty('--fan-depth', depth);
+      card.style.setProperty('--fan-scale', String(1 - Math.min(depth, 3) * 0.1));
+      card.style.setProperty('--fan-opacity', isVisible ? String(1 - depth * 0.16) : '0');
+      card.style.setProperty('--fan-z', String(30 - depth));
+      card.classList.toggle('is-visible', isVisible);
+      card.classList.toggle('is-active', isActive);
+      card.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+      card.setAttribute('aria-label', card.querySelector('img')?.alt || `Guest photo ${index + 1}`);
+      card.tabIndex = isVisible ? 0 : -1;
+    });
+
+    if (currentLabel) currentLabel.textContent = String(activeIndex + 1).padStart(2, '0');
+  };
+
+  const goTo = (index) => {
+    activeIndex = (index + total) % total;
+    updateCarousel();
+  };
+
+  prevButton?.addEventListener('click', () => goTo(activeIndex - 1));
+  nextButton?.addEventListener('click', () => goTo(activeIndex + 1));
+
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      if (index !== activeIndex) goTo(index);
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        card.click();
+      }
+    });
+    card.querySelector('img')?.setAttribute('draggable', 'false');
+  });
+
+  shell.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') goTo(activeIndex - 1);
+    if (event.key === 'ArrowRight') goTo(activeIndex + 1);
+  });
+
+  carousel.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', (event) => {
+    const distance = event.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(distance) < 45) return;
+    goTo(distance < 0 ? activeIndex + 1 : activeIndex - 1);
+  }, { passive: true });
+
+  updateCarousel();
+})();

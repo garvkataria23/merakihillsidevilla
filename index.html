@@ -10,8 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/brand/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="media/brand/meraki-badge-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="media/brand/apple-touch-icon.png">
 
     <!-- Primary SEO Meta Tags -->
     <title>Meraki Hillside Villa Panchgani | Luxury 4BHK Private Villa with Infinity Pool</title>
@@ -29,9 +30,9 @@
     <!-- GEO Meta Tags -->
     <meta name="geo.region" content="IN-MH">
     <meta name="geo.placename" content="Panchgani, Khingar, Maharashtra, India">
-    <meta name="geo.position" content="17.9237;73.7988">
+    <meta name="geo.position" content="17.916038;73.8217702">
     <meta name="geo.box" content="17.9000, 73.7500, 17.9500, 73.8300">
-    <meta name="ICBM" content="17.9237, 73.7988">
+    <meta name="ICBM" content="17.916038, 73.8217702">
     <meta name="zipcode" content="412805">
     <meta name="city" content="Panchgani">
     <meta name="state" content="Maharashtra">
@@ -66,7 +67,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="media/images/hero-1280.avif" fetchpriority="high" type="image/avif">
     
-    <link rel="stylesheet" href="style.css?v=30.0">
+    <link rel="stylesheet" href="style.css?v=38.0">
 
     <!-- LodgingBusiness JSON-LD -->
     <script type="application/ld+json">
@@ -78,6 +79,7 @@
       "alternateName": ["Meraki Villa Panchgani", "Meraki Hillside Villa Khingar", "Meraki Hill Side Villa"],
       "description": "A luxury 4BHK private villa in Khingar, Panchgani featuring an infinity pool with dam and valley views, accommodating up to 16 guests with in-house cook service.",
       "url": "https://merakihillsidevilla.com",
+      "logo": "https://merakihillsidevilla.com/media/brand/meraki-badge-512.png",
       "telephone": "+917777066774",
       "priceRange": "$$$",
       "currenciesAccepted": "INR",
@@ -106,10 +108,10 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 17.9237,
-        "longitude": 73.7988
+        "latitude": 17.916038,
+        "longitude": 73.8217702
       },
-      "hasMap": "https://maps.google.com/?q=17.9237,73.7988",
+      "hasMap": "https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D",
       "checkinTime": "14:00",
       "checkoutTime": "11:00",
       "petsAllowed": true,
@@ -117,7 +119,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.91",
-        "reviewCount": "243",
+        "reviewCount": "71",
         "bestRating": "5",
         "worstRating": "1"
       }
@@ -247,8 +249,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 17.9237,
-        "longitude": 73.7988
+        "latitude": 17.916038,
+        "longitude": 73.8217702
       },
       "amenityFeature": [
         { "@type": "LocationFeatureSpecification", "name": "Private Infinity Pool", "value": true },
@@ -269,14 +271,19 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="navbar__container">
-            <a href="#home" class="navbar__logo">Meraki Hillside Villa</a>
+            <a href="#home" class="navbar__logo" aria-label="Meraki Hillside Villa — Home">
+                <img src="media/brand/meraki-wordmark.png" alt="Meraki Hillside Villa" width="720" height="461">
+            </a>
             
             <nav class="navbar__nav" aria-label="Main Navigation">
                 <ul class="navbar__links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#villa">The Villa</a></li>
                     <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#happy-guests">Happy Guests</a></li>
                     <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#dining">Dining</a></li>
+                    <li><a href="#house-rules">Rules</a></li>
                     <li><a href="#location">Location</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -296,13 +303,18 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
         <div class="mobile-menu__header">
-            <span class="mobile-menu__logo">Meraki Hillside Villa</span>
+            <a href="#home" class="mobile-menu__logo" aria-label="Meraki Hillside Villa — Home">
+                <img src="media/brand/meraki-wordmark.png" alt="Meraki Hillside Villa" width="720" height="461">
+            </a>
         </div>
         <ul class="mobile-menu__links">
             <li><a href="#home">Home</a></li>
             <li><a href="#villa">The Villa</a></li>
             <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#happy-guests">Happy Guests</a></li>
             <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#dining">Dining</a></li>
+            <li><a href="#house-rules">Rules</a></li>
             <li><a href="#location">Location</a></li>
             <li><a href="#reviews">Reviews</a></li>
             <li><a href="#faq">FAQ</a></li>
@@ -313,6 +325,7 @@
         </div>
     </div>
 
+    <div class="first-screen">
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero__slides">
@@ -341,20 +354,6 @@
             <aside class="hero-booking" aria-label="Plan your stay">
                 <h2>Plan Your Stay</h2>
                 <p>Experience Meraki Hillside Villa</p>
-                <div class="hero-booking__dates">
-                    <a href="#enquiry" class="hero-booking__field">
-                        <span>Check In</span>
-                        <strong>Select date</strong>
-                    </a>
-                    <a href="#enquiry" class="hero-booking__field">
-                        <span>Check Out</span>
-                        <strong>Select date</strong>
-                    </a>
-                </div>
-                <a href="#enquiry" class="hero-booking__guests">
-                    <span>Guests</span>
-                    <strong>2 Guests</strong>
-                </a>
                 <a href="#enquiry" class="hero-booking__cta">Check Availability <span aria-hidden="true">&rarr;</span></a>
                 <span class="hero-booking__note">Best rates guaranteed</span>
             </aside>
@@ -414,7 +413,7 @@
                     <strong>Booking.com</strong> &bull; 10 / 10 Exceptional
                 </a>
                 <div class="trust-divider"></div>
-                <a class="trust-item" href="https://maps.google.com/?q=17.9237,73.7988" target="_blank" rel="noopener">
+                <a class="trust-item" href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
                     <strong>Google Maps</strong> &bull; ★ 4.9 Verified
                 </a>
                 <div class="trust-divider"></div>
@@ -424,10 +423,12 @@
             </div>
         </div>
     </section>
+    </div>
 
     <main>
         <!-- Introduction Section -->
-        <section id="villa" class="intro section">
+        <section id="villa" class="intro section brand-watermark-section">
+            <img class="brand-watermark brand-watermark--top-right" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true">
             <div class="container">
                 <div class="intro__grid">
                     <div class="intro__image zoom-in" data-full="media/images/living-room-1280.avif">
@@ -885,7 +886,8 @@
         </section>
 
         <!-- Refined Amenities Section -->
-        <section id="amenities" class="amenities section">
+        <section id="amenities" class="amenities section brand-watermark-section">
+            <img class="brand-watermark brand-watermark--bottom-left" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <!-- Section Header & Lead -->
                 <div class="amenities__header fade-in">
@@ -1129,6 +1131,105 @@
             </div>
         </section>
 
+        <!-- Food Menu Section -->
+        <section id="dining" class="food-menu-section section section--alt brand-watermark-section">
+            <img class="brand-watermark brand-watermark--center-right" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
+            <div class="container">
+                <div class="food-menu-section__header fade-in">
+                    <div>
+                        <span class="eyebrow">FRESHLY PREPARED AT THE VILLA</span>
+                        <h2 class="section__title">Breakfast &amp; Main Course</h2>
+                        <p class="section__subtitle">Comforting vegetarian meals, cooked fresh by our resident cook. Choose your favourites and confirm quantities before your stay.</p>
+                    </div>
+                    <div class="food-menu-section__note"><span>100%</span><small>Home-style cooking</small></div>
+                </div>
+
+                <div class="food-menu-preview">
+                    <article class="food-menu-card food-menu-card--breakfast fade-in">
+                        <div class="food-menu-card__top">
+                            <span class="food-menu-card__number">01</span>
+                            <div><span class="food-menu-card__label">MORNING FAVOURITES</span><h3>Breakfast</h3></div>
+                            <span class="food-menu-card__timing">A fresh start</span>
+                        </div>
+                        <ul class="food-price-list">
+                            <li><span>Poha</span><strong>₹60</strong></li>
+                            <li><span>Upma</span><strong>₹60</strong></li>
+                            <li><span>Puri Bhaji</span><strong>₹100</strong></li>
+                            <li><span>Aloo / Paneer Paratha</span><strong>₹100</strong></li>
+                            <li><span>Chole Bhature</span><strong>₹120</strong></li>
+                            <li><span>Grill Sandwich</span><strong>₹80</strong></li>
+                            <li><span>Thalipeeth</span><strong>₹80</strong></li>
+                            <li><span>Misal Pav</span><strong>₹150</strong></li>
+                        </ul>
+                        <p class="food-menu-card__more">Also available: beverages, dosa, uttapam, bhaji, snacks and more.</p>
+                    </article>
+
+                    <article class="food-menu-card food-menu-card--main fade-in">
+                        <div class="food-menu-card__top">
+                            <span class="food-menu-card__number">02</span>
+                            <div><span class="food-menu-card__label">LUNCH &amp; DINNER</span><h3>Main Course</h3></div>
+                            <span class="food-menu-card__timing">Home-style meals</span>
+                        </div>
+                        <ul class="food-price-list">
+                            <li><span>Dal Fry</span><strong>₹120</strong></li>
+                            <li><span>Paneer Masala</span><strong>₹280</strong></li>
+                            <li><span>Palak Paneer</span><strong>₹280</strong></li>
+                            <li><span>Aloo Mutter</span><strong>₹190</strong></li>
+                            <li><span>Mix Veg</span><strong>₹220</strong></li>
+                            <li><span>Veg Kolhapuri</span><strong>₹220</strong></li>
+                            <li><span>Veg Biryani</span><strong>₹220</strong></li>
+                            <li><span>Dal Khichdi</span><strong>₹180</strong></li>
+                        </ul>
+                        <p class="food-menu-card__more">Rice, breads and traditional chul specials are also available.</p>
+                    </article>
+
+                    <aside class="food-menu-actions fade-in">
+                        <span class="food-menu-actions__script">Good food.<br>Better stays.</span>
+                        <p>The complete menu includes breakfast, snacks, barbecue, main course, rice, breads and Maharashtrian chul specials.</p>
+                        <button class="btn btn--primary" id="openMenuBtn4">View Complete Food Menu &rarr;</button>
+                        <a href="https://wa.me/917777066774?text=Hi!%20I%20would%20like%20to%20plan%20meals%20for%20my%20stay%20at%20Meraki%20Hillside%20Villa." target="_blank" rel="noopener">Plan meals on WhatsApp</a>
+                        <small>Prices are in INR and may be reconfirmed before ordering.</small>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- House Rules Section -->
+        <section id="house-rules" class="house-rules section brand-watermark-section">
+            <img class="brand-watermark brand-watermark--bottom-left" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
+            <div class="container">
+                <div class="house-rules__header fade-in">
+                    <div>
+                        <span class="eyebrow">PLEASE READ BEFORE YOUR STAY</span>
+                        <h2 class="section__title">House Rules &amp; Stay Policy</h2>
+                        <p class="section__subtitle">A few clear guidelines help us keep every stay safe, peaceful and comfortable for all guests.</p>
+                    </div>
+                    <a class="house-rules__location" href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><span>LOCATE THE VILLA</span><strong>Open in Google Maps &rarr;</strong></a>
+                </div>
+
+                <div class="stay-times fade-in" aria-label="Check-in and payment information">
+                    <div><span>Check-in</span><strong>2:00 PM</strong></div>
+                    <div><span>Check-out</span><strong>11:00 AM</strong></div>
+                    <div><span>Security deposit</span><strong>₹5,000 refundable</strong></div>
+                    <div><span>Payment</span><strong>Full payment before check-in</strong></div>
+                </div>
+
+                <div class="house-rules__grid">
+                    <article class="rule-card fade-in"><span class="rule-card__index">01</span><h3>Identity &amp; Guest Charges</h3><p>Valid government photo ID is mandatory at check-in. Extra guests are charged ₹1,500 per person, per day. Children above 5 years are chargeable.</p></article>
+                    <article class="rule-card fade-in"><span class="rule-card__index">02</span><h3>Quiet Hours &amp; Checkout</h3><p>Outdoor music is strictly not allowed after 9:00 PM. Late checkout is subject to availability and charged at ₹2,000 per hour.</p></article>
+                    <article class="rule-card rule-card--important fade-in"><span class="rule-card__index">03</span><h3>Pool Safety</h3><p>The pool is 4 ft deep. Diving and jumping are strictly prohibited. Children must be supervised by an adult. Guests use the pool at their own risk.</p></article>
+                    <article class="rule-card fade-in"><span class="rule-card__index">04</span><h3>Power Backup</h3><p>Village-wide electricity outages are beyond the property's control. Inverter backup is available for approximately 4 hours during an outage.</p></article>
+                    <article class="rule-card fade-in"><span class="rule-card__index">05</span><h3>Cancellation Policy</h3><p>Advance payments are non-refundable in case of natural calamities, road blockages, landslides or political activity affecting travel.</p></article>
+                    <article class="rule-card fade-in"><span class="rule-card__index">06</span><h3>Care for the Villa</h3><p>The refundable deposit is returned after checkout inspection, subject to no damage or loss. Please follow caretaker guidance and use all facilities responsibly.</p></article>
+                </div>
+
+                <div class="house-rules__support fade-in">
+                    <p>Need help before or during your stay? Our team is available to assist.</p>
+                    <a class="btn btn--whatsapp" href="tel:+917777066774">Call +91 77770 66774</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Location Section -->
         <section id="location" class="location section">
             <div class="container">
@@ -1140,7 +1241,7 @@
 
                 <div class="location__side-by-side">
                     <!-- Address Tile Card (Clickable) -->
-                    <a href="https://maps.google.com/?q=17.9237,73.7988" target="_blank" rel="noopener" class="location__address-card fade-in">
+                    <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="location__address-card fade-in">
                         <div class="address-card__hero">
                             <span class="address-card__icon">P</span>
                             <div>
@@ -1176,8 +1277,8 @@
 
                     <!-- Google Map Container (Same Size: 380px) -->
                     <div class="location__map-container fade-in">
-                        <iframe src="https://maps.google.com/maps?q=17.9237,73.7988&t=&z=14&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="eager" fetchpriority="high" referrerpolicy="no-referrer-when-downgrade" title="Meraki Hillside Villa Location Map"></iframe>
-                        <a href="https://maps.google.com/?q=17.9237,73.7988" target="_blank" rel="noopener" class="location-map__larger">View larger map</a>
+                        <iframe src="https://maps.google.com/maps?q=17.916038,73.8217702&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="eager" fetchpriority="high" referrerpolicy="no-referrer-when-downgrade" title="Meraki Hillside Villa Location Map"></iframe>
+                        <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="location-map__larger">View larger map</a>
                         <div class="location-map__story">
                             <img src="media/images/balcony-view-400.webp" alt="Valley view near Meraki Hillside Villa" loading="lazy">
                             <div>
@@ -1250,7 +1351,7 @@
                 </div>
                 <div class="attractions__footer">
                     <span>Nature &bull; Views &bull; Flavours &bull; Memories</span>
-                    <a href="https://maps.google.com/?q=17.9237,73.7988" target="_blank" rel="noopener" class="btn btn--primary">View on Google Maps &rarr;</a>
+                    <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn btn--primary">View on Google Maps &rarr;</a>
                     <span>Panchgani Awaits</span>
                 </div>
             </div>
@@ -1265,7 +1366,8 @@
                     <p class="section__subtitle">Smiles, celebrations, family time, and memories made at your private hillside villa in Panchgani.</p>
                 </div>
 
-                <div class="happy-guests__mosaic fade-in">
+                <div class="happy-guests__fan-shell fade-in">
+                <div class="happy-guests__mosaic" data-fan-carousel aria-label="Happy guest photo carousel" aria-roledescription="carousel">
                     <figure class="happy-guest happy-guest--large"><img src="pictures/happy guests/WhatsApp Image 2026-09-08 at 11.33.53 AM.jpeg" alt="Happy guests enjoying their stay at Meraki Hillside Villa" loading="lazy"></figure>
                     <figure class="happy-guest happy-guest--tall"><img src="pictures/happy guests/WhatsApp Image 2026-09-08 at 11.31.39 AM.jpeg" alt="Guest celebration at Meraki Hillside Villa" loading="lazy"></figure>
                     <figure class="happy-guest"><img src="pictures/happy guests/WhatsApp Image 2026-09-08 at 11.30.54 AM (1).jpeg" alt="Guests relaxing at Meraki Hillside Villa" loading="lazy"></figure>
@@ -1298,6 +1400,14 @@
                     <figure class="happy-guest"><img src="pictures/happy guests/WhatsApp Image 2026-09-08 at 11.26.43 AM (2).jpeg" alt="Guests enjoying Meraki Hillside Villa" loading="lazy"></figure>
                 </div>
 
+                <div class="happy-guests__fan-controls" aria-label="Guest photo carousel controls">
+                    <button type="button" class="happy-guests__fan-button" data-guest-prev aria-label="Previous guest photo">&larr;</button>
+                    <p><strong data-guest-current>01</strong><span>/</span><span data-guest-total>30</span></p>
+                    <button type="button" class="happy-guests__fan-button" data-guest-next aria-label="Next guest photo">&rarr;</button>
+                </div>
+                <p class="happy-guests__fan-hint">Use the arrows or swipe to explore real guest moments</p>
+                </div>
+
                 <div class="happy-guests__footer fade-in">
                     <span>Real smiles from real stays</span>
                     <a href="#enquiry" class="btn btn--primary">Plan Your Stay &rarr;</a>
@@ -1317,64 +1427,22 @@
                     <div class="reviews__rating-summary mt-3">
                         <div class="rating-stars">★★★★★</div>
                         <span class="rating-score">4.9/5</span>
-                        <p class="rating-meta">Based on verified reviews across Airbnb, Booking.com & Google</p>
+                        <p class="rating-meta">Based on 71 verified Google reviews</p>
                     </div>
                 </div>
 
-                <div class="reviews__cards mt-4">
-                    <article class="review-card fade-in">
-                        <span class="quote-mark">&ldquo;</span>
-                        <blockquote class="quote-body">
-                            The property has an amazing view and is extremely well-maintained. Everything is available exactly as described and was very clean. The caretaker was cordial and helpful. The stay was amazing overall.
-                        </blockquote>
-                        <div class="review-stars">★★★★★</div>
-                        <div class="quote-attribution">
-                            <span class="review-platform review-platform--booking">B.</span>
-                            <div>
-                            <span class="author-name">Saumil</span>
-                            <span class="author-source">Verified Booking.com Guest</span>
-                        </div>
-                        </div>
-                        <span class="review-tag">Clean Stay &nbsp; | &nbsp; Great Hospitality</span>
-                    </article>
-
-                    <article class="review-card fade-in">
-                        <span class="quote-mark">&ldquo;</span>
-                        <blockquote class="quote-body">
-                            Meraki Villa is hands down one of the best villas for hire in Panchgani. The place is really well maintained and to top it off has great views to offer. Flawless communication with the property owner.
-                        </blockquote>
-                        <div class="review-stars">★★★★★</div>
-                        <div class="quote-attribution">
-                            <span class="review-platform review-platform--google">G</span>
-                            <div>
-                                <span class="author-name">Parth & Tejas</span>
-                                <span class="author-source">Verified Google & Airbnb Guests</span>
-                            </div>
-                        </div>
-                        <span class="review-tag">Stunning Views &nbsp; | &nbsp; Well Maintained</span>
-                    </article>
-
-                    <article class="review-card fade-in">
-                        <span class="quote-mark">&ldquo;</span>
-                        <blockquote class="quote-body">
-                            It was one of the most beautiful and memorable holidays with my family. The amazing view due to location of villa, spacious & clean 4 bedrooms and exceptional service provided by the staff and in-house cook.
-                        </blockquote>
-                        <div class="review-stars">★★★★★</div>
-                        <div class="quote-attribution">
-                            <span class="review-platform review-platform--airbnb">A</span>
-                            <div>
-                                <span class="author-name">Smoon26</span>
-                                <span class="author-source">Verified Airbnb Guest</span>
-                            </div>
-                        </div>
-                        <span class="review-tag">Spacious &nbsp; | &nbsp; Excellent Service</span>
-                    </article>
-
+                <div class="google-review-carousel mt-4 fade-in" id="googleReviewCarousel" aria-label="Top 30 Google reviews, auto-scrolling at 1x speed">
+                    <div class="google-review-carousel__track" id="googleReviewTrack" aria-live="off"></div>
+                    <button class="google-review-carousel__toggle" id="googleReviewToggle" type="button" aria-pressed="false" aria-label="Pause review carousel">Pause</button>
+                    <span class="google-review-carousel__speed" aria-hidden="true">AUTO &bull; 1&times;</span>
                 </div>
 
                 <div class="reviews__footer">
                     <span>Grateful for Every Story</span>
-                    <a href="https://maps.google.com/?q=17.9237,73.7988" target="_blank" rel="noopener">See Reviews on Google Maps &rarr;</a>
+                    <div class="reviews__google-actions">
+                        <a href="https://www.google.com/search?sca_esv=a6de26ecf3f9c9fb&amp;sxsrf=APpeQnv380kJkJ2aaVkLxccr-anZcA00Wg:1788898543675&amp;q=meraki+hillside+villa&amp;spell=1&amp;sa=X&amp;ved=2ahUKEwjPkfCx5t-WAxVDUGwGHRsMA9kQBSgAegQIERAB&amp;biw=1396&amp;bih=663&amp;dpr=1.38#lrd=0x3bc26970ea800c0d:0x3bf3bb56323caee5,1,,,," target="_blank" rel="noopener">View Google Reviews</a>
+                        <a href="https://www.google.com/search?sca_esv=a6de26ecf3f9c9fb&amp;sxsrf=APpeQnv380kJkJ2aaVkLxccr-anZcA00Wg:1788898543675&amp;q=meraki+hillside+villa&amp;spell=1&amp;sa=X&amp;ved=2ahUKEwjPkfCx5t-WAxVDUGwGHRsMA9kQBSgAegQIERAB&amp;biw=1396&amp;bih=663&amp;dpr=1.38#lrd=0x3bc26970ea800c0d:0x3bf3bb56323caee5,3,,,," target="_blank" rel="noopener">Write a Review &rarr;</a>
+                    </div>
                     <span>Meraki Hillside Villa</span>
                 </div>
 
@@ -1420,7 +1488,8 @@
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="faq section section--alt">
+        <section id="faq" class="faq section section--alt brand-watermark-section">
+            <img class="brand-watermark brand-watermark--bottom-right" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="faq__editorial-layout">
                     <div class="faq__intro fade-in">
@@ -1435,16 +1504,17 @@
                             <span><strong>D</strong>Booking & Policies</span>
                         </div>
 
-                        <div class="faq__cta">
-                            <a href="https://wa.me/917777066774?text=Hi%2C%20I%20have%20a%20question%20about%20booking%20Meraki%20Hillside%20Villa." target="_blank" rel="noopener" class="btn btn--primary">Have Questions? Message Us &rarr;</a>
-                            <small>We're happy to help!</small>
+                        <div class="faq__support-card">
+                            <figure class="faq__support-media">
+                                <img src="media/images/balcony-view-400.webp" alt="Peaceful balcony view at Meraki Hillside Villa" loading="lazy">
+                            </figure>
+                            <div class="faq__support-copy">
+                                <span>Need a quick answer?</span>
+                                <h3>Talk to your host</h3>
+                                <p>Stay details, food preferences or booking help—we're just a message away.</p>
+                                <a href="https://wa.me/917777066774?text=Hi%2C%20I%20have%20a%20question%20about%20booking%20Meraki%20Hillside%20Villa." target="_blank" rel="noopener" class="faq__support-link">Message us on WhatsApp <span aria-hidden="true">&rarr;</span></a>
+                            </div>
                         </div>
-
-                        <figure class="faq__image">
-                            <img src="media/images/balcony-view-400.webp" alt="Peaceful balcony view at Meraki Hillside Villa" loading="lazy">
-                            <figcaption>Still curious? We're here.</figcaption>
-                        </figure>
-                        <span class="faq__script">Your Questions<br>Our Warmest<br>Answers</span>
                     </div>
 
                     <div class="faq__accordion-list fade-in">
@@ -1471,6 +1541,22 @@
                         <div class="faq-row">
                             <button class="faq-question" aria-expanded="false"><span class="faq-row__icon">Pet</span><span>Is Meraki Hillside Villa pet-friendly?</span><span class="faq-icon">+</span></button>
                             <div class="faq-answer"><p>Yes, we welcome well-behaved pets. Please inform us at the time of enquiry so we can arrange suitable accommodations.</p></div>
+                        </div>
+                        <div class="faq-row">
+                            <button class="faq-question" aria-expanded="false"><span class="faq-row__icon">₹</span><span>Are extra guests and children chargeable?</span><span class="faq-icon">+</span></button>
+                            <div class="faq-answer"><p>Extra guests are charged ₹1,500 per person, per day. Children above 5 years are also chargeable. Please share the final guest count before check-in.</p></div>
+                        </div>
+                        <div class="faq-row">
+                            <button class="faq-question" aria-expanded="false"><span class="faq-row__icon">S</span><span>What are the pool timings and safety rules?</span><span class="faq-icon">+</span></button>
+                            <div class="faq-answer"><p>The private pool is available from 7:00 AM to 9:00 PM and is 4 ft deep. Diving and jumping are prohibited, and children must always be supervised by an adult.</p></div>
+                        </div>
+                        <div class="faq-row">
+                            <button class="faq-question" aria-expanded="false"><span class="faq-row__icon">C</span><span>What is the cancellation and refund policy?</span><span class="faq-icon">+</span></button>
+                            <div class="faq-answer"><p>Advance payments are non-refundable in case of natural calamities, road blockages, landslides or political activity affecting travel. Please confirm your plans before booking.</p></div>
+                        </div>
+                        <div class="faq-row">
+                            <button class="faq-question" aria-expanded="false"><span class="faq-row__icon">Q</span><span>Are there quiet hours and power backup?</span><span class="faq-icon">+</span></button>
+                            <div class="faq-answer"><p>Outdoor music is strictly not allowed after 9:00 PM. During a village-wide power outage, inverter backup is available for approximately 4 hours.</p></div>
                         </div>
                     </div>
                 </div>
@@ -1669,7 +1755,7 @@
                                 <strong>Find Your Way</strong>
                                 <span>Get villa location, navigation and directions on Google Maps.</span>
                             </div>
-                            <a href="https://maps.google.com/?q=17.9237,73.7988" target="_blank" rel="noopener" class="btn btn--whatsapp">Get Directions <span>&rarr;</span></a>
+                            <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn btn--whatsapp">Get Directions <span>&rarr;</span></a>
                         </div>
                     </div>
                 </div>
@@ -1695,8 +1781,9 @@
             <div class="container">
                 <div class="footer__grid">
                     <div class="footer__brand fade-in">
-                        <div class="footer__mark">MERAKI</div>
-                        <div class="footer__mark-sub">HILLSIDE VILLA</div>
+                        <a href="#home" class="footer__logo-wrap" aria-label="Meraki Hillside Villa — Back to top">
+                            <img src="media/brand/meraki-wordmark.png" alt="Meraki Hillside Villa" width="720" height="461" loading="lazy">
+                        </a>
                         <p class="footer__tagline">Your private hillside<br>escape in Panchgani.</p>
                         <p class="footer__motto">Stay &bull; Unwind &bull; Belong</p>
                         <div class="footer__socials" aria-label="Social links">
@@ -1708,14 +1795,14 @@
 
                     <nav class="footer__nav fade-in" aria-label="Footer Navigation">
                         <h3>Quick Links</h3>
-                        <a href="#home">Home</a><a href="#villa">The Villa</a><a href="#gallery">Gallery</a><a href="#amenities">Amenities</a><a href="#location">Location</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+                        <a href="#home">Home</a><a href="#villa">The Villa</a><a href="#gallery">Gallery</a><a href="#happy-guests">Happy Guests</a><a href="#amenities">Amenities</a><a href="#dining">Dining</a><a href="#house-rules">Rules</a><a href="#location">Location</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
                     </nav>
 
                     <div class="footer__contact fade-in">
                         <h3>Get in Touch</h3>
                         <a href="tel:+917777066774"><span>Ph</span><strong>+91 7777066774</strong><small>Call us anytime</small></a>
                         <a href="https://wa.me/917777066774" target="_blank" rel="noopener"><span>Wa</span><strong>Chat on WhatsApp</strong><small>Instant response</small></a>
-                        <a href="https://maps.google.com/?q=17.9237,73.7988" target="_blank" rel="noopener"><span>Lo</span><strong>Khingar, Panchgani,<br>Maharashtra 412805</strong><small>View on Maps</small></a>
+                        <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><span>Lo</span><strong>Khingar, Panchgani,<br>Maharashtra 412805</strong><small>View on Maps</small></a>
                         <a href="mailto:info@merakihillsidevilla.com"><span>Em</span><strong>info@merakihillsidevilla.com</strong><small>We'd love to hear from you</small></a>
                     </div>
 
@@ -1738,22 +1825,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Fixed Mobile Action Bar -->
-    <div class="mobile-bar">
-        <a href="https://wa.me/917777066774?text=Hi%2C%20I%20found%20Meraki%20Hillside%20Villa%20online%20and%20would%20like%20to%20know%20more." target="_blank" rel="noopener" class="mobile-bar__item mobile-bar__item--wa">
-            <span class="icon">💬</span>
-            <span class="label">WhatsApp</span>
-        </a>
-        <a href="tel:+917777066774" class="mobile-bar__item">
-            <span class="icon">📞</span>
-            <span class="label">Call</span>
-        </a>
-        <a href="#enquiry" class="mobile-bar__item">
-            <span class="icon">✉️</span>
-            <span class="label">Enquire</span>
-        </a>
-    </div>
 
     <!-- Floating WhatsApp Button (Desktop) -->
     <a href="https://wa.me/917777066774?text=Hi%2C%20I%20found%20Meraki%20Hillside%20Villa%20online%20and%20would%20like%20to%20know%20more." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp" data-cursor="CHAT">
@@ -1788,8 +1859,8 @@
             
             <div class="text-center mb-3">
                 <span class="eyebrow">IN-HOUSE CHEF SELECTION</span>
-                <h2 class="section__title" id="menuModalTitle">Sample Food Menu</h2>
-                <p class="section__subtitle">Freshly prepared home-style meals by our resident cook.</p>
+                <h2 class="section__title" id="menuModalTitle">Complete Vegetarian Food Menu</h2>
+                <p class="section__subtitle">Freshly prepared home-style meals by our resident cook. Prices are in INR.</p>
             </div>
 
             <div class="menu-modal__side-note menu-modal__side-note--left" aria-hidden="true">Good<br>Food<br>Great<br>Company</div>
@@ -1800,7 +1871,7 @@
                     <div class="menu-category__media"></div>
                     <div class="menu-category__head"><span class="menu-category__icon">B</span><div><h3>Breakfast</h3><p>A fresh start to your day</p></div></div>
                     <ul class="menu-list">
-                        <li><span>Poha</span><strong>60</strong></li><li><span>Upma</span><strong>60</strong></li><li><span>Puri Bhaji</span><strong>100</strong></li><li><span>Aloo Paratha</span><strong>100</strong></li><li><span>Paneer Paratha</span><strong>100</strong></li><li><span>Chole Bhature</span><strong>120</strong></li><li><span>Kanda Poha</span><strong>60</strong></li><li><span>Aloo Poha</span><strong>80</strong></li><li><span>Sandwich</span><strong>80</strong></li><li><span>Bread Butter Jam</span><strong>80</strong></li><li><span>Garlic Bread</span><strong>100</strong></li><li><span>Grill Sandwich</span><strong>80</strong></li><li><span>Thaleepeeth</span><strong>80</strong></li><li><span>Sabudana Khichdi</span><strong>80</strong></li><li><span>Pav Bhaji</span><strong>220</strong></li><li><span>Missal Pav</span><strong>150</strong></li><li><span>Maggie Cheese Masala</span><strong>80</strong></li><li><span>Maggie</span><strong>50</strong></li><li><span>Tea / Coffee</span><strong>20/30</strong></li><li><span>Milk</span><strong>30</strong></li><li><span>Nimboo Pani</span><strong>30</strong></li><li><span>Chaas</span><strong>30</strong></li><li><span>Lassi</span><strong>50</strong></li>
+                        <li><span>Poha</span><strong>60</strong></li><li><span>Upma</span><strong>60</strong></li><li><span>Puri Bhaji</span><strong>100</strong></li><li><span>Aloo Paratha</span><strong>100</strong></li><li><span>Paneer Paratha</span><strong>100</strong></li><li><span>Chole Bhature</span><strong>120</strong></li><li><span>Kanda Poha</span><strong>60</strong></li><li><span>Aloo Poha</span><strong>80</strong></li><li><span>Sandwich</span><strong>80</strong></li><li><span>Bread Butter Jam</span><strong>80</strong></li><li><span>Garlic Bread</span><strong>100</strong></li><li><span>Grill Sandwich</span><strong>80</strong></li><li><span>Thalipeeth</span><strong>80</strong></li><li><span>Sabudana Khichdi</span><strong>80</strong></li><li><span>Pav Bhaji</span><strong>220</strong></li><li><span>Misal Pav</span><strong>150</strong></li><li><span>Maggi Cheese Masala</span><strong>80</strong></li><li><span>Maggi</span><strong>50</strong></li><li><span>Tea / Coffee</span><strong>20/30</strong></li><li><span>Milk</span><strong>30</strong></li><li><span>Nimbu Pani</span><strong>30</strong></li><li><span>Chaas</span><strong>30</strong></li><li><span>Lassi</span><strong>50</strong></li>
                     </ul>
                 </article>
 
@@ -1808,7 +1879,7 @@
                     <div class="menu-category__media"></div>
                     <div class="menu-category__head"><span class="menu-category__icon">S</span><div><h3>Snacks</h3><p>Perfect for relaxed evenings</p></div></div>
                     <ul class="menu-list">
-                        <li><span>Kanda Bhaji</span><strong>80</strong></li><li><span>Aloo Bhaji</span><strong>80</strong></li><li><span>Moong Bhaji</span><strong>80</strong></li><li><span>Batata Vada</span><strong>40</strong></li><li><span>Cheese Pakoda</span><strong>150</strong></li><li><span>Corn Bhaji</span><strong>80</strong></li><li><span>Paneer Pakoda</span><strong>120</strong></li><li><span>Finger Chips</span><strong>80</strong></li><li><span>Masala Papad</span><strong>50</strong></li><li><span>Aloo Vadi</span><strong>100</strong></li><li><span>Kothimbirvadi</span><strong>100</strong></li><li><span>Kakdi Bhaji</span><strong>80</strong></li><li><span>Mix Bhaji</span><strong>100</strong></li><li><span>Tomato Bhaji</span><strong>100</strong></li><li><span>Plain Dosa</span><strong>80</strong></li><li><span>Masala Dosa</span><strong>120</strong></li><li><span>Butter Dosa</span><strong>100</strong></li><li><span>Cheese Dosa</span><strong>120</strong></li><li><span>Onion Uttapam</span><strong>100</strong></li><li><span>Sada Uttapam</span><strong>80</strong></li>
+                        <li><span>Kanda Bhaji</span><strong>80</strong></li><li><span>Aloo Bhaji</span><strong>80</strong></li><li><span>Moong Bhaji</span><strong>80</strong></li><li><span>Batata Vada</span><strong>40</strong></li><li><span>Cheese Pakoda</span><strong>150</strong></li><li><span>Corn Bhaji</span><strong>80</strong></li><li><span>Paneer Pakoda</span><strong>120</strong></li><li><span>Finger Chips</span><strong>80</strong></li><li><span>Masala Papad</span><strong>50</strong></li><li><span>Aloo Vadi</span><strong>100</strong></li><li><span>Kothimbir Vadi</span><strong>100</strong></li><li><span>Kakdi Bhaji</span><strong>80</strong></li><li><span>Mix Bhaji</span><strong>100</strong></li><li><span>Tomato Bhaji</span><strong>100</strong></li><li><span>Plain Dosa</span><strong>80</strong></li><li><span>Masala Dosa</span><strong>120</strong></li><li><span>Butter Dosa</span><strong>100</strong></li><li><span>Cheese Dosa</span><strong>120</strong></li><li><span>Onion Uttapam</span><strong>100</strong></li><li><span>Sada Uttapam</span><strong>80</strong></li>
                     </ul>
                 </article>
 
@@ -1823,21 +1894,21 @@
                 <article class="menu-category menu-category--main">
                     <div class="menu-category__head"><span class="menu-category__icon">L</span><div><h3>Lunch / Dinner Main Course</h3><p>Home-style curries and sabzis</p></div></div>
                     <ul class="menu-list menu-list--columns">
-                        <li><span>Dal Fry</span><strong>120</strong></li><li><span>Paneer Masala</span><strong>280</strong></li><li><span>Palak Paneer</span><strong>280</strong></li><li><span>Paneer Kaju</span><strong>280</strong></li><li><span>Paneer Bhurji</span><strong>180</strong></li><li><span>Aloo Mutter</span><strong>190</strong></li><li><span>Jeera Aloo</span><strong>180</strong></li><li><span>Dum Aloo</span><strong>220</strong></li><li><span>Ghobhi Mutter</span><strong>180</strong></li><li><span>Matki Usal</span><strong>180</strong></li><li><span>Bhindi Masala</span><strong>180</strong></li><li><span>Mix Veg</span><strong>220</strong></li><li><span>Veg Kolhapuri</span><strong>220</strong></li><li><span>Todli Sabzi</span><strong>180</strong></li><li><span>Pattaghobi</span><strong>280</strong></li><li><span>Kadhai Paneer</span><strong>280</strong></li><li><span>Mutter Paneer</span><strong>260</strong></li><li><span>Veg Kadhai</span><strong>220</strong></li><li><span>Tumatar Chutney</span><strong>150</strong></li><li><span>Veg Biryani</span><strong>220</strong></li><li><span>Tawa Pulao</span><strong>210</strong></li><li><span>Dal Khichdi</span><strong>180</strong></li>
+                        <li><span>Dal Fry</span><strong>120</strong></li><li><span>Paneer Masala</span><strong>280</strong></li><li><span>Palak Paneer</span><strong>280</strong></li><li><span>Paneer Kaju</span><strong>280</strong></li><li><span>Paneer Bhurji</span><strong>180</strong></li><li><span>Aloo Mutter</span><strong>190</strong></li><li><span>Jeera Aloo</span><strong>180</strong></li><li><span>Dum Aloo</span><strong>220</strong></li><li><span>Gobi Mutter</span><strong>180</strong></li><li><span>Matki Usal</span><strong>180</strong></li><li><span>Bhindi Masala</span><strong>180</strong></li><li><span>Mix Veg</span><strong>220</strong></li><li><span>Veg Kolhapuri</span><strong>220</strong></li><li><span>Tondli Sabzi</span><strong>180</strong></li><li><span>Patta Gobi</span><strong>280</strong></li><li><span>Kadhai Paneer</span><strong>280</strong></li><li><span>Mutter Paneer</span><strong>260</strong></li><li><span>Veg Kadhai</span><strong>220</strong></li><li><span>Tomato Chutney</span><strong>150</strong></li><li><span>Veg Biryani</span><strong>220</strong></li><li><span>Tawa Pulao</span><strong>210</strong></li><li><span>Dal Khichdi</span><strong>180</strong></li>
                     </ul>
                 </article>
 
                 <article class="menu-category menu-category--staples">
                     <div class="menu-category__head"><span class="menu-category__icon">D</span><div><h3>Rice, Breads & Dal</h3><p>Pairings for lunch and dinner</p></div></div>
                     <ul class="menu-list menu-list--columns">
-                        <li><span>Jeera Rice</span><strong>130</strong></li><li><span>Plain Rice</span><strong>120</strong></li><li><span>Bhakri</span><strong>30</strong></li><li><span>Chapati</span><strong>20</strong></li><li><span>Rajma</span><strong>280</strong></li><li><span>Mushroom Kaju Kari</span><strong>280</strong></li><li><span>Kaju Masala</span><strong>280</strong></li><li><span>Mushroom Masala</span><strong>220</strong></li><li><span>Dal Tadka</span><strong>150</strong></li><li><span>Veg Pulao</span><strong>280</strong></li><li><span>Akkha Masoor Dal</span><strong>220</strong></li><li><span>Chola Masala</span><strong>220</strong></li><li><span>Chole Puri</span><strong>280</strong></li>
+                        <li><span>Jeera Rice</span><strong>130</strong></li><li><span>Plain Rice</span><strong>120</strong></li><li><span>Bhakri</span><strong>30</strong></li><li><span>Chapati</span><strong>20</strong></li><li><span>Rajma</span><strong>280</strong></li><li><span>Mushroom Kaju Curry</span><strong>280</strong></li><li><span>Kaju Masala</span><strong>280</strong></li><li><span>Mushroom Masala</span><strong>220</strong></li><li><span>Dal Tadka</span><strong>150</strong></li><li><span>Veg Pulao</span><strong>280</strong></li><li><span>Akha Masoor Dal</span><strong>220</strong></li><li><span>Chole Masala</span><strong>220</strong></li><li><span>Chole Puri</span><strong>280</strong></li>
                     </ul>
                 </article>
 
                 <article class="menu-category menu-category--chul">
                     <div class="menu-category__head"><span class="menu-category__icon">C</span><div><h3>Chul Specials</h3><p>Traditional Maharashtrian flavours</p></div></div>
                     <ul class="menu-list">
-                        <li><span>Bharleli Wangi</span></li><li><span>Bharta</span></li><li><span>Thechya</span></li><li><span>Puran Poli</span></li><li><span>Pethla</span></li><li><span>Masala Bhaat</span></li><li><span>Amti</span></li><li><span>Jawar Bhakri</span></li><li><span>Bajra Bhakri</span></li><li><span>Rice Bhakri</span></li><li><span>Chapati</span></li>
+                        <li><span>Bharli Vangi</span></li><li><span>Bharta</span></li><li><span>Thecha</span></li><li><span>Puran Poli</span></li><li><span>Pithla</span></li><li><span>Masala Bhaat</span></li><li><span>Amti</span></li><li><span>Jowar Bhakri</span></li><li><span>Bajra Bhakri</span></li><li><span>Rice Bhakri</span></li><li><span>Chapati</span></li>
                     </ul>
                 </article>
             </div>
@@ -1847,9 +1918,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Copy Toast Popup -->
-    <div class="copy-toast" id="copyToast">Copied to clipboard!</div>
 
     <script src="script.js" defer></script>
 </body>
