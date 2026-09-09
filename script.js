@@ -276,6 +276,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterItems = document.querySelectorAll('.filter-item');
+    const galleryRail = document.querySelector('.gallery__editorial-grid');
+
+    if (galleryRail) {
+        galleryRail.dataset.activeFilter = 'all';
+    }
+
+    filterBtns.forEach(btn => {
+        const filter = btn.getAttribute('data-filter');
+        if (filter && filter !== 'all' && !document.querySelector(`.filter-item.${filter}`)) {
+            btn.hidden = true;
+        }
+    });
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -287,6 +299,11 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.setAttribute('aria-pressed', 'true');
 
             const filter = btn.getAttribute('data-filter');
+
+            if (galleryRail) {
+                galleryRail.dataset.activeFilter = filter || 'all';
+                galleryRail.scrollTo({ left: 0, behavior: 'smooth' });
+            }
 
             filterItems.forEach(item => {
                 if (filter === 'all' || item.classList.contains(filter)) {
@@ -946,6 +963,8 @@ const initMobileAutoRails = () => {
     window.setInterval(() => {
         const time = performance.now();
         rails.forEach((rail) => {
+            if (rail.matches('.gallery__editorial-grid') && rail.dataset.activeFilter !== 'all') return;
+
             const rect = rail.getBoundingClientRect();
             const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
             if (!isVisible || time < (pausedUntil.get(rail) || 0)) return;
