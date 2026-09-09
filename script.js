@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (galleryRail) {
                 galleryRail.dataset.activeFilter = filter || 'all';
-                galleryRail.scrollTo({ left: 0, behavior: 'smooth' });
+                galleryRail.scrollLeft = 0;
             }
 
             filterItems.forEach(item => {
