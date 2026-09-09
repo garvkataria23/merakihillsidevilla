@@ -67,7 +67,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="media/images/hero-1280.avif" fetchpriority="high" type="image/avif">
     
-    <link rel="stylesheet" href="style.css?v=66">
+    <link rel="stylesheet" href="style.css?v=67">
 
     <!-- LodgingBusiness JSON-LD -->
     <script type="application/ld+json">
@@ -609,18 +609,18 @@
                 </div>
 
                 <div class="gallery-filters fade-in" aria-label="Gallery categories">
-                    <button class="active" type="button">All</button>
-                    <button type="button">Exterior</button>
-                    <button type="button">Pool & Outdoors</button>
-                    <button type="button">Living Spaces</button>
-                    <button type="button">Bedrooms</button>
-                    <button type="button">Dining</button>
-                    <button type="button">Amenities</button>
+                    <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn" type="button" data-filter="exterior" aria-pressed="false">Exterior</button>
+                    <button class="filter-btn" type="button" data-filter="outdoors" aria-pressed="false">Pool & Outdoors</button>
+                    <button class="filter-btn" type="button" data-filter="living" aria-pressed="false">Living Spaces</button>
+                    <button class="filter-btn" type="button" data-filter="bedrooms" aria-pressed="false">Bedrooms</button>
+                    <button class="filter-btn" type="button" data-filter="dining" aria-pressed="false">Dining</button>
+                    <button class="filter-btn" type="button" data-filter="amenities" aria-pressed="false">Amenities</button>
                 </div>
 
                 <div class="gallery__editorial-grid mt-4">
                     <!-- Feature Hero Image -->
-                    <div class="gallery__item gallery__item--hero zoom-in fade-in" data-index="0" data-full="media/images/hero-1280.avif">
+                    <div class="gallery__item gallery__item--hero zoom-in fade-in filter-item exterior outdoors" data-index="0" data-full="media/images/hero-1280.avif">
                         <picture>
                             <source srcset="media/images/hero-400.avif 400w, media/images/hero-800.avif 800w, media/images/hero-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 66vw" type="image/avif">
                             <source srcset="media/images/hero-400.webp 400w, media/images/hero-800.webp 800w, media/images/hero-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 66vw" type="image/webp">
@@ -633,7 +633,7 @@
                     </div>
 
                     <!-- Pool Feature -->
-                    <div class="gallery__item gallery__item--tall zoom-in fade-in" data-index="1" data-full="media/images/pool-1280.avif">
+                    <div class="gallery__item gallery__item--tall zoom-in fade-in filter-item outdoors" data-index="1" data-full="media/images/pool-1280.avif">
                         <picture>
                             <source srcset="media/images/pool-400.avif 400w, media/images/pool-800.avif 800w, media/images/pool-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/pool-400.webp 400w, media/images/pool-800.webp 800w, media/images/pool-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -646,7 +646,7 @@
                     </div>
 
                     <!-- Living Lounge -->
-                    <div class="gallery__item zoom-in fade-in" data-index="2" data-full="media/images/living-room-1280.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item living" data-index="2" data-full="media/images/living-room-1280.avif">
                         <picture>
                             <source srcset="media/images/living-room-400.avif 400w, media/images/living-room-800.avif 800w, media/images/living-room-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/living-room-400.webp 400w, media/images/living-room-800.webp 800w, media/images/living-room-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -659,7 +659,7 @@
                     </div>
 
                     <!-- Bedroom 1 -->
-                    <div class="gallery__item zoom-in fade-in" data-index="3" data-full="media/images/bedroom-1280.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item bedrooms" data-index="3" data-full="media/images/bedroom-1280.avif">
                         <picture>
                             <source srcset="media/images/bedroom-400.avif 400w, media/images/bedroom-800.avif 800w, media/images/bedroom-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/bedroom-400.webp 400w, media/images/bedroom-800.webp 800w, media/images/bedroom-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -672,7 +672,7 @@
                     </div>
 
                     <!-- Bedroom 2 -->
-                    <div class="gallery__item zoom-in fade-in" data-index="4" data-full="media/images/bedroom2-1280.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item bedrooms" data-index="4" data-full="media/images/bedroom2-1280.avif">
                         <picture>
                             <source srcset="media/images/bedroom2-400.avif 400w, media/images/bedroom2-800.avif 800w, media/images/bedroom2-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/bedroom2-400.webp 400w, media/images/bedroom2-800.webp 800w, media/images/bedroom2-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -685,7 +685,7 @@
                     </div>
 
                     <!-- Canopy Bedroom Wide -->
-                    <div class="gallery__item gallery__item--wide zoom-in fade-in" data-index="5" data-full="media/images/bedroom3-1280.avif">
+                    <div class="gallery__item gallery__item--wide zoom-in fade-in filter-item bedrooms" data-index="5" data-full="media/images/bedroom3-1280.avif">
                         <picture>
                             <source srcset="media/images/bedroom3-400.avif 400w, media/images/bedroom3-800.avif 800w, media/images/bedroom3-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 66vw" type="image/avif">
                             <source srcset="media/images/bedroom3-400.webp 400w, media/images/bedroom3-800.webp 800w, media/images/bedroom3-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 66vw" type="image/webp">
@@ -698,7 +698,7 @@
                     </div>
 
                     <!-- Bedroom 4 -->
-                    <div class="gallery__item zoom-in fade-in" data-index="6" data-full="media/images/bedroom4-1280.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item bedrooms" data-index="6" data-full="media/images/bedroom4-1280.avif">
                         <picture>
                             <source srcset="media/images/bedroom4-400.avif 400w, media/images/bedroom4-800.avif 800w, media/images/bedroom4-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/bedroom4-400.webp 400w, media/images/bedroom4-800.webp 800w, media/images/bedroom4-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -711,7 +711,7 @@
                     </div>
 
                     <!-- Kitchen -->
-                    <div class="gallery__item zoom-in fade-in" data-index="7" data-full="media/images/kitchen-1280.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item amenities dining" data-index="7" data-full="media/images/kitchen-1280.avif">
                         <picture>
                             <source srcset="media/images/kitchen-400.avif 400w, media/images/kitchen-800.avif 800w, media/images/kitchen-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/kitchen-400.webp 400w, media/images/kitchen-800.webp 800w, media/images/kitchen-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -724,7 +724,7 @@
                     </div>
 
                     <!-- Bathroom -->
-                    <div class="gallery__item zoom-in fade-in" data-index="8" data-full="media/images/bathroom-960.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item amenities" data-index="8" data-full="media/images/bathroom-960.avif">
                         <picture>
                             <source srcset="media/images/bathroom-400.avif 400w, media/images/bathroom-800.avif 800w, media/images/bathroom-960.avif 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/bathroom-400.webp 400w, media/images/bathroom-800.webp 800w, media/images/bathroom-960.webp 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -737,7 +737,7 @@
                     </div>
 
                     <!-- Dining -->
-                    <div class="gallery__item zoom-in fade-in" data-index="9" data-full="media/images/dining-960.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item dining" data-index="9" data-full="media/images/dining-960.avif">
                         <picture>
                             <source srcset="media/images/dining-400.avif 400w, media/images/dining-800.avif 800w, media/images/dining-960.avif 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/dining-400.webp 400w, media/images/dining-800.webp 800w, media/images/dining-960.webp 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -750,7 +750,7 @@
                     </div>
 
                     <!-- Games Room -->
-                    <div class="gallery__item zoom-in fade-in" data-index="10" data-full="media/images/games-room-1280.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item amenities" data-index="10" data-full="media/images/games-room-1280.avif">
                         <picture>
                             <source srcset="media/images/games-room-400.avif 400w, media/images/games-room-800.avif 800w, media/images/games-room-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/games-room-400.webp 400w, media/images/games-room-800.webp 800w, media/images/games-room-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -763,7 +763,7 @@
                     </div>
 
                     <!-- Garden -->
-                    <div class="gallery__item zoom-in fade-in" data-index="11" data-full="media/images/garden-1024.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item outdoors" data-index="11" data-full="media/images/garden-1024.avif">
                         <picture>
                             <source srcset="media/images/garden-400.avif 400w, media/images/garden-800.avif 800w, media/images/garden-1024.avif 1024w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/garden-400.webp 400w, media/images/garden-800.webp 800w, media/images/garden-1024.webp 1024w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -776,7 +776,7 @@
                     </div>
 
                     <!-- Outdoor Dining -->
-                    <div class="gallery__item zoom-in fade-in" data-index="12" data-full="media/images/outdoor-dining-960.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item outdoors dining" data-index="12" data-full="media/images/outdoor-dining-960.avif">
                         <picture>
                             <source srcset="media/images/outdoor-dining-400.avif 400w, media/images/outdoor-dining-800.avif 800w, media/images/outdoor-dining-960.avif 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/outdoor-dining-400.webp 400w, media/images/outdoor-dining-800.webp 800w, media/images/outdoor-dining-960.webp 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -789,7 +789,7 @@
                     </div>
 
                     <!-- Balcony View -->
-                    <div class="gallery__item zoom-in fade-in" data-index="13" data-full="media/images/balcony-view-960.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item exterior outdoors" data-index="13" data-full="media/images/balcony-view-960.avif">
                         <picture>
                             <source srcset="media/images/balcony-view-400.avif 400w, media/images/balcony-view-800.avif 800w, media/images/balcony-view-960.avif 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/balcony-view-400.webp 400w, media/images/balcony-view-800.webp 800w, media/images/balcony-view-960.webp 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -802,7 +802,7 @@
                     </div>
 
                     <!-- Entrance Night -->
-                    <div class="gallery__item zoom-in fade-in" data-index="14" data-full="media/images/entrance-night-1280.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item exterior" data-index="14" data-full="media/images/entrance-night-1280.avif">
                         <picture>
                             <source srcset="media/images/entrance-night-400.avif 400w, media/images/entrance-night-800.avif 800w, media/images/entrance-night-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/entrance-night-400.webp 400w, media/images/entrance-night-800.webp 800w, media/images/entrance-night-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">
@@ -815,7 +815,7 @@
                     </div>
 
                     <!-- Night Villa Wide -->
-                    <div class="gallery__item gallery__item--wide zoom-in fade-in" data-index="15" data-full="media/images/night-1280.avif">
+                    <div class="gallery__item gallery__item--wide zoom-in fade-in filter-item exterior outdoors" data-index="15" data-full="media/images/night-1280.avif">
                         <picture>
                             <source srcset="media/images/night-400.avif 400w, media/images/night-800.avif 800w, media/images/night-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 66vw" type="image/avif">
                             <source srcset="media/images/night-400.webp 400w, media/images/night-800.webp 800w, media/images/night-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 66vw" type="image/webp">
@@ -828,7 +828,7 @@
                     </div>
 
                     <!-- Evening Dining -->
-                    <div class="gallery__item zoom-in fade-in" data-index="16" data-full="media/images/evening-dining-960.avif">
+                    <div class="gallery__item zoom-in fade-in filter-item dining" data-index="16" data-full="media/images/evening-dining-960.avif">
                         <picture>
                             <source srcset="media/images/evening-dining-400.avif 400w, media/images/evening-dining-800.avif 800w, media/images/evening-dining-960.avif 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/avif">
                             <source srcset="media/images/evening-dining-400.webp 400w, media/images/evening-dining-800.webp 800w, media/images/evening-dining-960.webp 960w" sizes="(max-width: 900px) 100vw, 33vw" type="image/webp">

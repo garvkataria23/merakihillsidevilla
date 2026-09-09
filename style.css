@@ -1722,6 +1722,10 @@ p:last-child {
   color: #FFFFFF;
 }
 
+.hidden-filter {
+  display: none !important;
+}
+
 .gallery__editorial-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
