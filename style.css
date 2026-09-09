@@ -974,6 +974,7 @@ p:last-child {
 .intro .section__title em {
   display: block;
   font-weight: 400;
+  font-style: normal;
 }
 
 .lead {
