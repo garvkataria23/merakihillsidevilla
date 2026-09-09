@@ -4587,6 +4587,26 @@ p:last-child {
   font-weight: 400;
 }
 
+.footer__office {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0 1rem;
+  color: rgba(250, 248, 245, 0.8);
+}
+
+.footer__office > span:first-child {
+  grid-row: span 2;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(197, 168, 128, 0.55);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #E7D2B7;
+  font-size: 0.72rem;
+}
+
 .footer__contact small {
   color: rgba(250, 248, 245, 0.66);
 }
@@ -10528,5 +10548,35 @@ p:last-child {
   .ssense-floating-cta a.ssense-floating-cta__book {
     padding-inline: 8px !important;
     font-size: 0.64rem !important;
+  }
+}
+
+/* Footer head office block — match the footer contact rows on mobile. */
+@media (max-width: 600px) {
+  .footer__office {
+    grid-template-columns: 32px 1fr !important;
+    min-width: 0;
+    padding: 0.55rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+
+  .footer__office > span:first-child {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .footer__office strong {
+    grid-column: 2;
+    overflow-wrap: anywhere;
+    font-size: 0.72rem !important;
+  }
+
+  .footer__office small {
+    grid-column: 2;
+    display: block;
+    color: rgba(250, 248, 245, 0.55);
+    font-size: 0.62rem;
+    line-height: 1.4;
   }
 }
