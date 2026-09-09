@@ -1208,30 +1208,53 @@ p:last-child {
 
 .floor-video-card {
   position: absolute;
-  left: 1.4rem;
-  bottom: 1.4rem;
+  left: 1.25rem;
+  bottom: 1.25rem;
   z-index: 2;
-  display: inline-grid;
-  grid-template-columns: 56px auto;
+  display: grid;
+  grid-template-columns: 44px auto;
+  grid-template-areas:
+    "play title"
+    "play subtitle";
   align-items: center;
-  gap: 0.9rem;
-  padding: 0.45rem 1rem 0.45rem 0.45rem;
-  border-radius: 999px;
-  background: rgba(12, 11, 9, 0.42);
+  column-gap: 0.72rem;
+  row-gap: 0.08rem;
+  width: max-content;
+  max-width: calc(100% - 2.5rem);
+  padding: 0.48rem 0.9rem 0.48rem 0.48rem;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 15px;
+  background: rgba(25, 43, 30, 0.86);
   color: #FFFFFF;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 26px rgba(14, 24, 17, 0.24);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.floor-video-card:hover {
+  transform: translateY(-2px);
+  background: rgba(36, 67, 46, 0.94);
+  box-shadow: 0 14px 30px rgba(14, 24, 17, 0.3);
+}
+
+.floor-video-card:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
 }
 
 .floor-video-card span {
-  width: 52px;
-  height: 52px;
+  grid-area: play;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: rgba(250, 248, 245, 0.96);
   color: #2F4634;
+  font-size: 0.72rem;
+  padding-left: 2px;
 }
 
 .floor-video-card strong,
@@ -1240,14 +1263,20 @@ p:last-child {
 }
 
 .floor-video-card strong {
+  grid-area: title;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .floor-video-card small {
+  grid-area: subtitle;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 0.78rem;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .floor-thumbs {
@@ -6176,9 +6205,17 @@ p:last-child {
   }
 
   .floor-video-card {
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
+    left: 0.75rem;
+    right: auto;
+    bottom: 0.75rem;
+    max-width: calc(100% - 1.5rem);
+    grid-template-columns: 40px auto;
+    padding: 0.42rem 0.75rem 0.42rem 0.42rem;
+  }
+
+  .floor-video-card span {
+    width: 38px;
+    height: 38px;
   }
 
   .floor-actions,
@@ -8532,5 +8569,117 @@ p:last-child {
 
   .brand-watermark--bottom-left {
     left: -24%;
+  }
+}
+
+/* =========================================
+   MOBILE POLISH OVERRIDES
+   Applied on small screens only. Desktop layout untouched.
+   ========================================= */
+
+/* Happy Guests — between 491px and 640px the fan strips photo cards off-screen.
+   Fall back to a clean 2-column photo grid so every guest photo is visible. */
+@media (max-width: 640px) {
+  .happy-guests__fan-shell {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .happy-guests__mosaic {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 130px;
+    grid-auto-flow: dense;
+    gap: 0.7rem;
+    height: auto;
+    overflow: hidden;
+    perspective: none;
+  }
+
+  .happy-guests__mosaic .happy-guest,
+  .happy-guests__mosaic .happy-guest--large,
+  .happy-guests__mosaic .happy-guest--wide,
+  .happy-guests__mosaic .happy-guest--tall {
+    position: static;
+    top: auto;
+    left: auto;
+    width: 100% !important;
+    height: 100%;
+    margin: 0;
+    aspect-ratio: auto;
+    border-width: 3px;
+    border-radius: 14px;
+    opacity: 1 !important;
+    z-index: auto !important;
+    pointer-events: auto;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    transform: none !important;
+    transform-origin: center;
+    filter: none;
+    box-shadow: 0 8px 20px rgba(28, 24, 20, 0.12);
+    will-change: auto;
+  }
+
+  .happy-guests__mosaic .happy-guest--large {
+    grid-column: span 2;
+  }
+
+  .happy-guests__mosaic .happy-guest img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .happy-guests__mosaic .happy-guest::after {
+    opacity: 1;
+  }
+
+  .happy-guests__fan-controls,
+  .happy-guests__fan-hint {
+    display: none !important;
+  }
+}
+
+/* Final booking — the auto-sized grid track can exceed screen width
+   and clip the right side of the concierge card on small phones. */
+@media (max-width: 640px) {
+  .final-booking {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .final-booking > .container,
+  .container.relative-z {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .concierge-card {
+    max-width: 100%;
+  }
+}
+
+/* Contact editorial — keep full container width and single column
+   so the contact form/cards are not squeezed on small screens. */
+@media (max-width: 640px) {
+  .contact__editorial-layout {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact__actions-panel,
+  .contact__quick-info,
+  .contact__intro {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact__signature {
+    text-align: center;
+    transform: rotate(-2deg) scale(0.92);
+    max-width: 100%;
   }
 }
