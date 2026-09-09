@@ -10115,6 +10115,173 @@ p:last-child {
   }
 }
 
+.payment {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 18%, rgba(139, 115, 85, 0.12), transparent 29%),
+    linear-gradient(135deg, #f7f3ec 0%, #fbfaf7 55%, #f1ece3 100%);
+}
+
+.payment__layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.72fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.payment__copy .section__title {
+  max-width: 760px;
+  margin: 0.7rem 0 1rem;
+}
+
+.payment__copy .section__subtitle {
+  max-width: 680px;
+  margin: 0;
+  text-align: left;
+}
+
+.payment__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.6rem 0;
+}
+
+.payment__steps > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.65rem;
+  align-content: start;
+  min-height: 116px;
+  padding: 1rem;
+  border: 1px solid rgba(47, 70, 52, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.payment__steps span {
+  grid-row: 1 / 3;
+  color: #98794f;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+
+.payment__steps strong {
+  color: var(--text-primary);
+  font-size: 0.88rem;
+}
+
+.payment__steps small {
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.payment__account {
+  display: grid;
+  grid-template-columns: 58px repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-block: 1px solid rgba(139, 115, 85, 0.24);
+}
+
+.payment__account .section-logo-medallion {
+  width: 52px;
+  height: 52px;
+}
+
+.payment__account div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.payment__account small {
+  color: #8b7355;
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+}
+
+.payment__account strong {
+  color: #2f4634;
+  font-size: 0.94rem;
+}
+
+.payment__notice {
+  margin: 1.1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid #2f4634;
+}
+
+.payment__notice strong {
+  color: var(--text-primary);
+  font-size: 0.82rem;
+}
+
+.payment__notice p {
+  margin: 0.25rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.payment__notice a {
+  color: #2f4634;
+  font-weight: 700;
+}
+
+.payment__whatsapp {
+  width: fit-content;
+  border-radius: 999px;
+}
+
+.payment__qr-card {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 355px);
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid rgba(139, 115, 85, 0.2);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 24px 60px rgba(47, 70, 52, 0.14);
+  transform: rotate(1deg);
+}
+
+.payment__qr-card img {
+  display: block;
+  width: 100%;
+  max-height: 540px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.payment__qr-label {
+  position: absolute;
+  top: 1.7rem;
+  left: -1.1rem;
+  z-index: 2;
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  background: #2f4634;
+  color: #fff;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.payment__qr-card figcaption {
+  padding: 0.65rem 0.4rem 0.1rem;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
 .contact__cards {
   display: contents;
 }
@@ -10429,6 +10596,83 @@ p:last-child {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+  }
+
+  .payment__layout {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .payment__copy .section__title {
+    font-size: clamp(2.05rem, 9.7vw, 2.45rem) !important;
+  }
+
+  .payment__steps {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(76vw, 260px);
+    gap: 0.6rem;
+    margin: 1.1rem 0;
+    padding-bottom: 0.35rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .payment__steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  .payment__steps > div {
+    min-height: 96px;
+    padding: 0.8rem;
+    scroll-snap-align: start;
+  }
+
+  .payment__account {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 0.65rem;
+    padding: 0.75rem 0;
+  }
+
+  .payment__account .section-logo-medallion {
+    grid-row: 1 / 3;
+    width: 42px;
+    height: 42px;
+  }
+
+  .payment__account div {
+    grid-column: 2;
+  }
+
+  .payment__notice {
+    margin: 0.9rem 0;
+  }
+
+  .payment__whatsapp {
+    width: 100%;
+    min-height: 46px;
+    padding: 0.75rem 0.9rem;
+    font-size: 0.68rem;
+  }
+
+  .payment__qr-card {
+    width: min(88%, 292px);
+    padding: 0.65rem;
+    border-radius: 20px;
+    transform: none;
+  }
+
+  .payment__qr-card img {
+    max-height: 455px;
+    border-radius: 12px;
+  }
+
+  .payment__qr-label {
+    top: 1.2rem;
+    left: -0.65rem;
+    font-size: 0.58rem;
   }
 
   .contact__editorial-layout {
