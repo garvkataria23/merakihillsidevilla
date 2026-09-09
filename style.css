@@ -10073,6 +10073,23 @@ p:last-child {
   }
 }
 
+/* Mobile header WhatsApp button — slightly more compact so the top bar stays clean. */
+@media (max-width: 900px) {
+  .navbar__actions .btn--whatsapp {
+    padding: 0.4rem 0.95rem;
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+}
+
+/* Mobile menu footer WhatsApp button — a bit smaller inside the opened menu. */
+@media (max-width: 900px) {
+  .mobile-menu__footer .btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.88rem;
+  }
+}
+
 .contact__cards {
   display: contents;
 }
