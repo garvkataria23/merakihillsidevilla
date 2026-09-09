@@ -8602,9 +8602,10 @@ p:last-child {
    Applied on small screens only. Desktop layout untouched.
    ========================================= */
 
-/* Happy Guests — between 491px and 640px the fan strips photo cards off-screen.
-   Fall back to a clean 2-column photo grid so every guest photo is visible. */
-@media (max-width: 640px) {
+/* Happy Guests — up to 900px the fan carousel pushes photo cards off-screen.
+   Fall back to a clean photo grid so every guest photo is visible.
+   Desktop (901px+) keeps the original fan. */
+@media (max-width: 900px) {
   .happy-guests__fan-shell {
     width: auto;
     margin: 0;
@@ -8613,8 +8614,8 @@ p:last-child {
 
   .happy-guests__mosaic {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 130px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: clamp(120px, 22vw, 160px);
     grid-auto-flow: dense;
     gap: 0.7rem;
     height: auto;
@@ -8664,6 +8665,13 @@ p:last-child {
   .happy-guests__fan-controls,
   .happy-guests__fan-hint {
     display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .happy-guests__mosaic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 130px;
   }
 }
 
