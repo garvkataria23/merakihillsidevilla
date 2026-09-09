@@ -750,6 +750,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 
+// Mobile-only auto-scroll for compact horizontal content rails.
+// The animation pauses while a guest swipes, taps or focuses a card.
+const initMobileAutoRails = () => {
+    const mobileRailQuery = window.matchMedia('(max-width: 600px)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const disableAutoScrollForAudit = new URLSearchParams(window.location.search).has('no-auto-scroll');
+    if (!mobileRailQuery.matches || reducedMotionQuery.matches || disableAutoScrollForAudit) return;
+
+    const rails = Array.from(document.querySelectorAll([
+        '.intro__facts-row',
+        '.floor-feature-grid',
+        '.video-tour__benefits',
+        '.gallery__editorial-grid',
+        '.amenities__grid',
+        '.food-menu-preview',
+        '.stay-times',
+        '.house-rules__grid',
+        '.attractions__grid',
+        '.happy-guests__mosaic',
+        '.faq-topics',
+        '.contact__quick-info',
+        '.contact__actions-panel',
+        '.footer__feature-strip'
+    ].join(',')));
+
+    if (!rails.length) return;
+
+    const pausedUntil = new WeakMap();
+    const pauseRail = (rail, duration = 4200) => {
+        pausedUntil.set(rail, performance.now() + duration);
+    };
+
+    rails.forEach((rail) => {
+        rail.addEventListener('pointerdown', () => pauseRail(rail), { passive: true });
+        rail.addEventListener('touchstart', () => pauseRail(rail), { passive: true });
+        rail.addEventListener('wheel', () => pauseRail(rail), { passive: true });
+        rail.addEventListener('focusin', () => pauseRail(rail, 6000));
+    });
+
+    document.documentElement.dataset.mobileRails = 'ready';
+
+    window.setInterval(() => {
+        const time = performance.now();
+        rails.forEach((rail) => {
+            const rect = rail.getBoundingClientRect();
+            const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+            if (!isVisible || time < (pausedUntil.get(rail) || 0)) return;
+            const maxScroll = rail.scrollWidth - rail.clientWidth;
+            if (maxScroll <= 2) return;
+
+            if (rail.scrollLeft >= maxScroll - 2) {
+                rail.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                const firstCard = rail.firstElementChild;
+                const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : rail.clientWidth * 0.78;
+                const gap = Number.parseFloat(window.getComputedStyle(rail).columnGap) || 0;
+                rail.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+            }
+        });
+    }, 3000);
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileAutoRails, { once: true });
+} else {
+    initMobileAutoRails();
+}
+
 // === Happy Guests Fan Carousel ===
 (function() {
   const carousel = document.querySelector('[data-fan-carousel]');
