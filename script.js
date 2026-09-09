@@ -325,6 +325,104 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
+    // 14A. Ground-floor photo carousel
+    // =========================================
+    const groundFloorGallery = document.querySelector('#ground-floor .floor-row__media');
+    if (groundFloorGallery) {
+        const mainFrame = groundFloorGallery.querySelector('.floor-row__image');
+        const mainImage = mainFrame?.querySelector('picture img');
+        const mainSources = mainFrame ? Array.from(mainFrame.querySelectorAll('picture source')) : [];
+        const imageIndexLabel = groundFloorGallery.querySelector('.floor-image-count');
+        const floorThumbs = Array.from(groundFloorGallery.querySelectorAll('[data-ground-index]'));
+        const floorPhotos = floorThumbs.map((thumb) => ({
+            full: thumb.getAttribute('data-full'),
+            alt: thumb.querySelector('img')?.alt || 'Ground floor at Meraki Hillside Villa'
+        }));
+        let activeGroundPhoto = 0;
+
+        const showGroundPhoto = (nextIndex) => {
+            if (!mainFrame || !mainImage || floorPhotos.length === 0) return;
+            activeGroundPhoto = (nextIndex + floorPhotos.length) % floorPhotos.length;
+            const photo = floorPhotos[activeGroundPhoto];
+            const webpSrc = photo.full.replace(/\.avif$/i, '.webp');
+
+            mainFrame.setAttribute('data-full', photo.full);
+            mainImage.src = webpSrc;
+            mainImage.alt = photo.alt;
+            mainSources.forEach((source) => {
+                source.srcset = source.type === 'image/avif' ? photo.full : webpSrc;
+            });
+            if (imageIndexLabel) {
+                imageIndexLabel.textContent = `${activeGroundPhoto + 1} / ${floorPhotos.length}`;
+            }
+            floorThumbs.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === activeGroundPhoto);
+            });
+        };
+
+        floorThumbs.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => showGroundPhoto(index));
+        });
+
+        groundFloorGallery.querySelectorAll('[data-ground-direction]').forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                showGroundPhoto(activeGroundPhoto + (button.dataset.groundDirection === 'next' ? 1 : -1));
+            });
+        });
+    }
+
+    // =========================================
+    // 14B. First-floor photo carousel
+    // =========================================
+    const firstFloorGallery = document.querySelector('.first-floor-gallery');
+    if (firstFloorGallery) {
+        const mainFrame = firstFloorGallery.querySelector('.floor-row__image');
+        const mainImage = mainFrame?.querySelector('img');
+        const mainSources = mainFrame ? Array.from(mainFrame.querySelectorAll('source')) : [];
+        const imageIndexLabel = firstFloorGallery.querySelector('.floor-image-index');
+        const floorThumbs = Array.from(firstFloorGallery.querySelectorAll('[data-floor-index]'));
+        const floorPhotos = floorThumbs.map((thumb) => ({
+            full: thumb.getAttribute('data-full'),
+            alt: thumb.querySelector('img')?.alt || 'First floor at Meraki Hillside Villa'
+        }));
+        let activeFloorPhoto = 0;
+
+        const showFloorPhoto = (nextIndex) => {
+            if (!mainFrame || !mainImage || floorPhotos.length === 0) return;
+            activeFloorPhoto = (nextIndex + floorPhotos.length) % floorPhotos.length;
+            const photo = floorPhotos[activeFloorPhoto];
+            const webpSrc = photo.full.replace(/\.avif$/i, '.webp');
+
+            mainFrame.setAttribute('data-full', photo.full);
+            mainImage.src = webpSrc;
+            mainImage.alt = photo.alt;
+            mainSources.forEach((source) => {
+                source.srcset = source.type === 'image/avif' ? photo.full : webpSrc;
+            });
+            if (imageIndexLabel) {
+                imageIndexLabel.textContent = `${activeFloorPhoto + 1} / ${floorPhotos.length}`;
+            }
+            floorThumbs.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === activeFloorPhoto);
+            });
+        };
+
+        floorThumbs.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => showFloorPhoto(index));
+        });
+
+        firstFloorGallery.querySelectorAll('[data-floor-direction]').forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                showFloorPhoto(activeFloorPhoto + (button.dataset.floorDirection === 'next' ? 1 : -1));
+            });
+        });
+    }
+
+    // =========================================
     // 15. Universal Lightbox Gallery & Photo Viewer (Every Photo Clickable)
     // =========================================
     const photoTargets = document.querySelectorAll(
@@ -339,7 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxOverlay = document.querySelector('.lightbox__overlay');
 
     let currentIndex = 0;
+    let activeLightboxSequence = null;
     const galleryImages = [];
+    const groundFloorLightboxImages = [];
+    const firstFloorLightboxImages = [];
 
     photoTargets.forEach((el) => {
         const img = el.querySelector('img');
@@ -364,13 +465,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 alt: titleText || img.alt || 'Meraki Hillside Villa Photo'
             });
 
+            if (el.closest('.floor-thumbs--upper')) {
+                firstFloorLightboxImages.push(imageIndex);
+            }
+            if (el.closest('.floor-thumbs--ground')) {
+                groundFloorLightboxImages.push(imageIndex);
+            }
+
             el.style.cursor = 'pointer';
 
             el.addEventListener('click', (e) => {
-                if (el.classList.contains('ig-card')) {
+                const nestedControl = e.target.closest('a, button');
+                if (nestedControl && nestedControl !== el) return;
+                if (el.matches('a') || el.classList.contains('ig-card')) {
                     e.preventDefault();
                 }
-                openLightbox(imageIndex);
+                const liveFullSrc = el.getAttribute('data-full');
+                if (liveFullSrc) {
+                    galleryImages[imageIndex].src = liveFullSrc;
+                }
+
+                let requestedIndex = imageIndex;
+                let requestedSequence = null;
+                if (el.closest('.first-floor-gallery')) {
+                    requestedSequence = firstFloorLightboxImages;
+                    if (el.classList.contains('floor-row__image') && liveFullSrc) {
+                        const matchingIndex = firstFloorLightboxImages.find(
+                            (index) => galleryImages[index].src === liveFullSrc
+                        );
+                        if (matchingIndex !== undefined) requestedIndex = matchingIndex;
+                    }
+                } else if (el.closest('#ground-floor')) {
+                    requestedSequence = groundFloorLightboxImages;
+                    if (el.classList.contains('floor-row__image') && liveFullSrc) {
+                        const matchingIndex = groundFloorLightboxImages.find(
+                            (index) => galleryImages[index].src === liveFullSrc
+                        );
+                        if (matchingIndex !== undefined) requestedIndex = matchingIndex;
+                    }
+                }
+                openLightbox(requestedIndex, requestedSequence);
             });
         }
     });
@@ -395,9 +529,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    function openLightbox(index) {
+    function openLightbox(index, sequence = null) {
         if (!lightbox || galleryImages.length === 0) return;
         currentIndex = index;
+        activeLightboxSequence = sequence && sequence.length ? sequence : null;
         updateLightbox();
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
@@ -418,17 +553,32 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.src = image.src;
         lightboxImg.alt = image.alt;
         if (lightboxCounter) {
-            lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+            if (activeLightboxSequence) {
+                const sequenceIndex = activeLightboxSequence.indexOf(currentIndex);
+                lightboxCounter.textContent = `${sequenceIndex + 1} / ${activeLightboxSequence.length}`;
+            } else {
+                lightboxCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+            }
         }
     }
 
     function showNextImage() {
-        currentIndex = (currentIndex + 1) % galleryImages.length;
+        if (activeLightboxSequence) {
+            const sequenceIndex = activeLightboxSequence.indexOf(currentIndex);
+            currentIndex = activeLightboxSequence[(sequenceIndex + 1) % activeLightboxSequence.length];
+        } else {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+        }
         updateLightbox();
     }
 
     function showPrevImage() {
-        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        if (activeLightboxSequence) {
+            const sequenceIndex = activeLightboxSequence.indexOf(currentIndex);
+            currentIndex = activeLightboxSequence[(sequenceIndex - 1 + activeLightboxSequence.length) % activeLightboxSequence.length];
+        } else {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        }
         updateLightbox();
     }
 
@@ -730,7 +880,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto update copyright year
     const yearEl = document.getElementById('current-year');
     if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
+        yearEl.textContent = '2020';
     }
 });
 

@@ -67,7 +67,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="media/images/hero-1280.avif" fetchpriority="high" type="image/avif">
     
-    <link rel="stylesheet" href="style.css?v=47">
+    <link rel="stylesheet" href="style.css?v=58">
 
     <!-- LodgingBusiness JSON-LD -->
     <script type="application/ld+json">
@@ -479,7 +479,8 @@
         </section>
 
         <!-- Floor Guide ("Explore the Villa") -->
-        <section class="floor-guide section section--alt">
+        <section class="floor-guide section section--alt brand-watermark-section">
+            <img class="brand-watermark brand-watermark--bottom-right" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="section__header text-center fade-in">
                     <span class="eyebrow">VILLA ARCHITECTURE</span>
@@ -491,25 +492,29 @@
                     <div id="ground-floor" class="floor-row fade-in">
                         <div class="floor-row__media">
                             <div class="floor-row__image" data-full="media/images/pool-1280.avif">
-                                <span class="floor-image-count">1 / 12</span>
+                                <span class="floor-image-count">1 / 6</span>
                             <picture>
                                 <source srcset="media/images/pool-400.avif 400w, media/images/pool-800.avif 800w, media/images/pool-1280.avif 1280w" sizes="(max-width: 900px) 100vw, 50vw" type="image/avif">
                                 <source srcset="media/images/pool-400.webp 400w, media/images/pool-800.webp 800w, media/images/pool-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 50vw" type="image/webp">
                                 <img src="media/images/pool-800.webp" alt="Ground Floor Infinity Pool Deck at Meraki Villa" loading="lazy" decoding="async" width="1200" height="900">
                             </picture>
+                                <div class="floor-gallery-arrows" aria-label="Browse ground floor photos">
+                                    <button type="button" data-ground-direction="prev" aria-label="Previous ground floor photo">&larr;</button>
+                                    <button type="button" data-ground-direction="next" aria-label="Next ground floor photo">&rarr;</button>
+                                </div>
                                 <a href="#video" class="floor-video-card">
                                     <span>&#9658;</span>
                                     <strong>Watch Video</strong>
                                     <small>A glimpse of Meraki</small>
                                 </a>
                             </div>
-                            <div class="floor-thumbs" aria-label="Villa gallery previews">
-                                <a href="#gallery" class="active"><img src="media/images/pool-400.webp" alt="Pool deck preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/hero-400.webp" alt="Garden preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/living-room-400.webp" alt="Living room preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/dining-400.webp" alt="Dining preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/bedroom-400.webp" alt="Bedroom preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/garden-400.webp" alt="Garden detail preview" loading="lazy"></a>
+                            <div class="floor-thumbs floor-thumbs--ground" aria-label="Ground floor gallery previews">
+                                <a href="media/images/pool-1280.avif" class="active" data-ground-index="0" data-full="media/images/pool-1280.avif"><img src="media/images/pool-400.webp" alt="Ground floor infinity pool deck" loading="lazy"></a>
+                                <a href="media/images/hero-1280.avif" data-ground-index="1" data-full="media/images/hero-1280.avif"><img src="media/images/hero-400.webp" alt="Ground floor garden and pool exterior" loading="lazy"></a>
+                                <a href="media/images/living-room-1280.avif" data-ground-index="2" data-full="media/images/living-room-1280.avif"><img src="media/images/living-room-400.webp" alt="Ground floor grand living lounge" loading="lazy"></a>
+                                <a href="media/images/dining-960.avif" data-ground-index="3" data-full="media/images/dining-960.avif"><img src="media/images/dining-400.webp" alt="Ground floor indoor family dining" loading="lazy"></a>
+                                <a href="media/images/kitchen-1280.avif" data-ground-index="4" data-full="media/images/kitchen-1280.avif"><img src="media/images/kitchen-400.webp" alt="Ground floor chef kitchen setup" loading="lazy"></a>
+                                <a href="media/images/bedroom-1280.avif" data-ground-index="5" data-full="media/images/bedroom-1280.avif"><img src="media/images/bedroom-400.webp" alt="Ground floor master bedroom suite 1" loading="lazy"></a>
                             </div>
                         </div>
                         <div class="floor-row__content">
@@ -532,7 +537,6 @@
 
                             <div class="floor-actions">
                                 <a href="#gallery" class="btn btn--primary">Explore Gallery &rarr;</a>
-                                <a href="#video" class="floor-tour-link"><span>&#9658;</span><strong>Watch a Tour</strong><small>Experience the villa</small></a>
                             </div>
                         </div>
                     </div>
@@ -555,7 +559,6 @@
 
                             <div class="floor-actions">
                                 <a href="#gallery" class="btn btn--primary">View Gallery &rarr;</a>
-                                <a href="#video" class="floor-tour-link"><span>&#9658;</span><strong>Watch a Tour</strong><small>See the upper floor</small></a>
                             </div>
                         </div>
 
@@ -567,17 +570,20 @@
                                     <source srcset="media/images/bedroom3-400.webp 400w, media/images/bedroom3-800.webp 800w, media/images/bedroom3-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 50vw" type="image/webp">
                                     <img src="media/images/bedroom3-800.webp" alt="First Floor Canopy Bedroom Suite with Valley View Balcony" loading="lazy" decoding="async" width="1200" height="900">
                                 </picture>
-                                <div class="floor-gallery-arrows" aria-hidden="true"><span>&larr;</span><span>&rarr;</span></div>
+                                <div class="floor-gallery-arrows" aria-label="Browse first floor photos">
+                                    <button type="button" data-floor-direction="prev" aria-label="Previous first floor photo">&larr;</button>
+                                    <button type="button" data-floor-direction="next" aria-label="Next first floor photo">&rarr;</button>
+                                </div>
                                 <span class="floor-image-index">1 / 6</span>
                             </div>
                             <div class="floor-thumbs floor-thumbs--upper" aria-label="First floor gallery previews">
-                                <a href="#gallery" class="active"><img src="media/images/bedroom3-400.webp" alt="Valley bedroom preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/bedroom-400.webp" alt="Master bedroom preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/living-room-400.webp" alt="Upper lounge preview" loading="lazy"></a>
-                                <a href="#gallery"><img src="media/images/games-room-400.webp" alt="Games room preview" loading="lazy"></a>
-                                <a href="#gallery" class="floor-more-card">+2<span>More</span></a>
+                                <a href="media/images/bedroom3-1280.avif" class="active" data-floor-index="0" data-full="media/images/bedroom3-1280.avif"><img src="media/images/bedroom3-400.webp" alt="First floor canopy bedroom with valley balcony" loading="lazy"></a>
+                                <a href="media/images/bedroom2-1280.avif" data-floor-index="1" data-full="media/images/bedroom2-1280.avif"><img src="media/images/bedroom2-400.webp" alt="First floor master suite 2" loading="lazy"></a>
+                                <a href="media/images/bedroom4-1280.avif" data-floor-index="2" data-full="media/images/bedroom4-1280.avif"><img src="media/images/bedroom4-400.webp" alt="First floor valley suite 4" loading="lazy"></a>
+                                <a href="media/images/games-room-1280.avif" data-floor-index="3" data-full="media/images/games-room-1280.avif"><img src="media/images/games-room-400.webp" alt="First floor indoor games lounge" loading="lazy"></a>
+                                <a href="media/images/balcony-view-960.avif" data-floor-index="4" data-full="media/images/balcony-view-960.avif"><img src="media/images/balcony-view-400.webp" alt="First floor upper terrace balcony view" loading="lazy"></a>
+                                <a href="media/images/bathroom-960.avif" data-floor-index="5" data-full="media/images/bathroom-960.avif"><img src="media/images/bathroom-400.webp" alt="First floor panoramic en-suite bathroom" loading="lazy"></a>
                             </div>
-                            <a href="#gallery" class="floor-more-link">More spaces await &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -585,7 +591,8 @@
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="gallery section">
+        <section id="gallery" class="gallery section brand-watermark-section">
+            <img class="brand-watermark brand-watermark--top-right" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="section__header text-center fade-in">
                     <span class="eyebrow">PROPERTY PORTFOLIO</span>
@@ -825,36 +832,14 @@
                         </div>
                     </div>
 
-                    <!-- Reel Video -->
-                    <div class="gallery__video-card zoom-in fade-in">
-                        <video controls preload="metadata" playsinline poster="media/images/night-1280.webp" width="100%">
-                            <source src="https://videos.merakihillsidevilla.in/videos/reel-2-2025.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="gallery__caption">
-                            <span class="caption-tag">VIDEO REEL</span>
-                            <span class="caption-title">Meraki Moments — Guest Reel</span>
-                        </div>
-                    </div>
-
-                    <!-- On Rent Video -->
-                    <div class="gallery__video-card zoom-in fade-in">
-                        <video controls preload="metadata" playsinline poster="media/images/hero-1280.webp" width="100%">
-                            <source src="https://videos.merakihillsidevilla.in/videos/on-rent-hq.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="gallery__caption">
-                            <span class="caption-tag">VIDEO</span>
-                            <span class="caption-title">Meraki Hillside Villa — On Rent</span>
-                        </div>
-                    </div>
                 </div>
 
             </div>
         </section>
 
         <!-- Video Tour Section -->
-        <section id="video" class="video-tour section section--alt">
+        <section id="video" class="video-tour section section--alt brand-watermark-section">
+            <img class="brand-watermark brand-watermark--bottom-left" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="section__header text-center fade-in">
                     <span class="eyebrow">VILLA TOUR</span>
@@ -1227,13 +1212,16 @@
                         <h2 class="section__title">House Rules &amp; Stay Policy</h2>
                         <p class="section__subtitle">A few clear guidelines help us keep every stay safe, peaceful and comfortable for all guests.</p>
                     </div>
-                    <a class="house-rules__location" href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><span>LOCATE THE VILLA</span><strong>Open in Google Maps &rarr;</strong></a>
+                    <div class="house-rules__header-actions">
+                        <span class="section-logo-medallion" aria-hidden="true"><img src="media/brand/meraki-wordmark.png" alt=""></span>
+                        <a class="house-rules__location" href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><span>LOCATE THE VILLA</span><strong>Open in Google Maps &rarr;</strong></a>
+                    </div>
                 </div>
 
                 <div class="stay-times fade-in" aria-label="Check-in and payment information">
                     <div><span>Check-in</span><strong>2:00 PM</strong></div>
                     <div><span>Check-out</span><strong>11:00 AM</strong></div>
-                    <div><span>Security deposit</span><strong>₹5,000 refundable</strong></div>
+                    <div><span>Security deposit</span><strong class="stay-times__deposit">₹5,000 refundable</strong></div>
                     <div><span>Payment</span><strong>Full payment before check-in</strong></div>
                 </div>
 
@@ -1254,7 +1242,8 @@
         </section>
 
         <!-- Location Section -->
-        <section id="location" class="location section">
+        <section id="location" class="location section brand-watermark-section">
+            <img class="brand-watermark brand-watermark--top-right" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="section__header text-center fade-in">
                     <span class="eyebrow">DESTINATION & SETTING</span>
@@ -1266,7 +1255,7 @@
                     <!-- Address Tile Card (Clickable) -->
                     <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="location__address-card fade-in">
                         <div class="address-card__hero">
-                            <span class="address-card__icon">P</span>
+                            <span class="address-card__icon address-card__icon--logo" aria-hidden="true"><img src="media/brand/meraki-wordmark.png" alt=""></span>
                             <div>
                             <h3 class="address-card__title">Meraki Hillside Villa</h3>
                             <p class="address-card__text">Khingar Road, Near Sydney Point, Panchgani, Maharashtra 412805</p>
@@ -1315,7 +1304,8 @@
         </section>
 
         <!-- Nearby Attractions Section -->
-        <section id="attractions" class="attractions section">
+        <section id="attractions" class="attractions section brand-watermark-section">
+            <img class="brand-watermark brand-watermark--bottom-left" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="section__header text-center fade-in">
                     <span class="eyebrow">EXPLORE PANCHGANI</span>
@@ -1381,9 +1371,11 @@
         </section>
 
         <!-- Happy Guests Section -->
-        <section id="happy-guests" class="happy-guests section section--alt">
+        <section id="happy-guests" class="happy-guests section section--alt brand-watermark-section">
+            <img class="brand-watermark brand-watermark--top-right" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="happy-guests__header text-center fade-in">
+                    <span class="section-logo-medallion happy-guests__logo" aria-hidden="true"><img src="media/brand/meraki-wordmark.png" alt=""></span>
                     <span class="eyebrow">REAL GUEST MOMENTS</span>
                     <h2 class="section__title">Happy Guests at Meraki</h2>
                     <p class="section__subtitle">Smiles, celebrations, family time, and memories made at your private hillside villa in Panchgani.</p>
@@ -1440,7 +1432,8 @@
         </section>
 
         <!-- Reviews Section -->
-        <section id="reviews" class="reviews section">
+        <section id="reviews" class="reviews section brand-watermark-section">
+            <img class="brand-watermark brand-watermark--bottom-left" src="media/brand/meraki-wordmark.png" alt="" aria-hidden="true" loading="lazy">
             <div class="container">
                 <div class="reviews__header text-center fade-in">
                     <span class="eyebrow">GUEST EXPERIENCES</span>
@@ -1454,10 +1447,8 @@
                     </div>
                 </div>
 
-                <div class="google-review-carousel mt-4 fade-in" id="googleReviewCarousel" aria-label="Top 30 Google reviews, auto-scrolling at 1x speed">
+                <div class="google-review-carousel mt-4 fade-in" id="googleReviewCarousel" aria-label="Top 30 Google reviews carousel">
                     <div class="google-review-carousel__track" id="googleReviewTrack" aria-live="off"></div>
-                    <button class="google-review-carousel__toggle" id="googleReviewToggle" type="button" aria-pressed="false" aria-label="Pause review carousel">Pause</button>
-                    <span class="google-review-carousel__speed" aria-hidden="true">AUTO &bull; 1&times;</span>
                 </div>
 
                 <div class="reviews__footer">
@@ -1682,7 +1673,7 @@
                                 SEND ENQUIRY ON WHATSAPP
                                 <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                             </button>
-                            <a href="tel:+917777066774" class="btn btn--outline btn--large">CALL NOW</a>
+                            <a href="tel:+917777066774" class="btn btn--outline btn--large btn--call-solid">CALL NOW</a>
                         </div>
                     </form>
 
@@ -1747,7 +1738,7 @@
 
                     <div class="contact__actions-panel fade-in">
                         <h3 class="actions-title">Direct Host Actions</h3>
-                        
+                        <div class="contact__cards">
                         <div class="contact-action-card contact-action-card--whatsapp">
                             <span class="contact-action-card__image"></span>
                             <div class="contact-card__icon">W</div>
@@ -1767,7 +1758,7 @@
                                 <strong>Speak to Your Host</strong>
                                 <span>Call the villa host directly for personalized assistance.</span>
                             </div>
-                            <a href="tel:+917777066774" class="btn btn--outline">Call Now <span>&rarr;</span></a>
+                            <a href="tel:+917777066774" class="btn btn--outline btn--call-solid">Call Now <span>&rarr;</span></a>
                         </div>
 
                         <div class="contact-action-card contact-action-card--directions">
@@ -1779,6 +1770,7 @@
                                 <span>Get villa location, navigation and directions on Google Maps.</span>
                             </div>
                             <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn btn--whatsapp">Get Directions <span>&rarr;</span></a>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -1810,7 +1802,7 @@
                         <p class="footer__tagline">Your private hillside<br>escape in Panchgani.</p>
                         <p class="footer__motto">Stay &bull; Unwind &bull; Belong</p>
                         <div class="footer__socials" aria-label="Social links">
-                            <a href="https://www.instagram.com/merakihillsidevilla/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+                            <a href="https://www.instagram.com/merakihillside/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
                             <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
                             <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">yt</a>
                         </div>
@@ -1827,18 +1819,9 @@
                         <a href="https://wa.me/917777066774" target="_blank" rel="noopener"><span>Wa</span><strong>Chat on WhatsApp</strong><small>Instant response</small></a>
                         <a href="https://www.google.com/maps/place/Meraki+Hill+Side+Villa/@17.916038,73.8217702,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc26970ea800c0d:0x3bf3bb56323caee5!8m2!3d17.916038!4d73.8217702!16s%2Fg%2F11rvlq6tdn!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener"><span>Lo</span><strong>Khingar, Panchgani,<br>Maharashtra 412805</strong><small>View on Maps</small></a>
                         <a href="mailto:info@merakihillsidevilla.com"><span>Em</span><strong>info@merakihillsidevilla.com</strong><small>We'd love to hear from you</small></a>
+                        <a href="https://www.instagram.com/merakihillside/" target="_blank" rel="noopener"><span>Ig</span><strong>@merakihillside</strong><small>Follow us on Instagram</small></a>
                     </div>
 
-                    <div class="footer__newsletter fade-in">
-                        <h3>Stay in the Loop</h3>
-                        <p>Get special offers, seasonal updates and experience tips straight to your inbox.</p>
-                        <form class="footer__form">
-                            <label class="sr-only" for="footer-email">Email address</label>
-                            <input id="footer-email" type="email" placeholder="Enter your email address">
-                            <button type="submit" aria-label="Subscribe">&rarr;</button>
-                        </form>
-                        <label class="footer__consent"><input type="checkbox"> <span>I agree to receive updates from Meraki Hillside Villa.</span></label>
-                    </div>
                 </div>
 
                 <div class="footer__bottom">
@@ -1968,6 +1951,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=44" defer></script>
+    <script src="script.js?v=47" defer></script>
 </body>
 </html>
