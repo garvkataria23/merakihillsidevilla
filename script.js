@@ -682,7 +682,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Gaurav singh', when: 'a year ago', text: 'A well-kept villa in a convenient location near popular sights, supported by good food and caring staff.' }
     ];
 
-    if (googleReviewCarousel && googleReviewTrack && googleReviewToggle) {
+    if (googleReviewCarousel && googleReviewTrack) {
         const googleReviewsUrl = 'https://www.google.com/search?sca_esv=a6de26ecf3f9c9fb&sxsrf=APpeQnv380kJkJ2aaVkLxccr-anZcA00Wg:1788898543675&q=meraki+hillside+villa&spell=1&sa=X&ved=2ahUKEwjPkfCx5t-WAxVDUGwGHRsMA9kQBSgAegQIERAB&biw=1396&bih=663&dpr=1.38#lrd=0x3bc26970ea800c0d:0x3bf3bb56323caee5,1,,,,';
         const initials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map(part => part[0]).join('').toUpperCase();
 
@@ -727,12 +727,14 @@ document.addEventListener('DOMContentLoaded', () => {
         googleReviewCarousel.addEventListener('focusin', () => { reviewPausedByHover = true; });
         googleReviewCarousel.addEventListener('focusout', () => { reviewPausedByHover = false; });
 
-        googleReviewToggle.addEventListener('click', () => {
-            reviewPausedByUser = !reviewPausedByUser;
-            googleReviewToggle.setAttribute('aria-pressed', String(reviewPausedByUser));
-            googleReviewToggle.setAttribute('aria-label', reviewPausedByUser ? 'Play review carousel' : 'Pause review carousel');
-            googleReviewToggle.textContent = reviewPausedByUser ? 'Play' : 'Pause';
-        });
+        if (googleReviewToggle) {
+            googleReviewToggle.addEventListener('click', () => {
+                reviewPausedByUser = !reviewPausedByUser;
+                googleReviewToggle.setAttribute('aria-pressed', String(reviewPausedByUser));
+                googleReviewToggle.setAttribute('aria-label', reviewPausedByUser ? 'Play review carousel' : 'Pause review carousel');
+                googleReviewToggle.textContent = reviewPausedByUser ? 'Play' : 'Pause';
+            });
+        }
 
         requestAnimationFrame(animateReviews);
     }
