@@ -30,4 +30,4 @@ Allow: /
 User-agent: Cohere-ai
 Allow: /
 
-Sitemap: https://merakihillsidevilla.com/sitemap.xml
+Sitemap: https://merakihillsidevilla.in/sitemap.xml
