@@ -10867,12 +10867,20 @@ p:last-child {
 /* Footer head office block — match the footer contact rows on mobile. */
 @media (max-width: 600px) {
   .villa-reel-card {
-    grid-template-columns: 1fr !important;
     gap: 0.85rem !important;
     padding: 0.8rem !important;
+    min-height: auto !important;
+  }
+
+  .villa-reel-card > div {
+    margin-bottom: 0.8rem !important;
+    padding: 0.85rem !important;
   }
 
   .villa-reel-card video {
+    position: static !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16 !important;
     max-height: min(58vh, 420px) !important;
   }
 
