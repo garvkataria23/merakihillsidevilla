@@ -1855,17 +1855,7 @@ p:last-child {
 }
 
 .gallery__item--hero::after {
-  content: '1 / 17';
-  position: absolute;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 2;
-  padding: 0.65rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(12, 11, 9, 0.52);
-  color: #FFFFFF;
-  font-weight: 800;
-  font-size: 0.82rem;
+  content: none;
 }
 
 /* ==========================================================================
