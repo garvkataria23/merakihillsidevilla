@@ -10854,3 +10854,22 @@ p:last-child {
     white-space: nowrap !important;
   }
 }
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.42rem 0 !important;
+  }
+
+  .navbar.scrolled {
+    padding: 0.34rem 0 !important;
+  }
+
+  .navbar__logo {
+    width: 76px !important;
+    height: 42px !important;
+  }
+
+  .navbar__container {
+    padding-inline: 0.95rem !important;
+  }
+}
