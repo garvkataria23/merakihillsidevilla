@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!mainFrame || !mainImage || floorPhotos.length === 0) return;
             activeGroundPhoto = (nextIndex + floorPhotos.length) % floorPhotos.length;
             const photo = floorPhotos[activeGroundPhoto];
-            const webpSrc = photo.full.replace(/\.avif$/i, '.webp');
+            const webpSrc = photo.full.replace(/\.avif(\?.*)?$/i, '.webp$1');
 
             mainFrame.setAttribute('data-full', photo.full);
             mainImage.src = webpSrc;
@@ -378,7 +378,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         floorThumbs.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => showGroundPhoto(index));
+            thumb.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                showGroundPhoto(index);
+            });
         });
 
         groundFloorGallery.querySelectorAll('[data-ground-direction]').forEach((button) => {
@@ -410,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!mainFrame || !mainImage || floorPhotos.length === 0) return;
             activeFloorPhoto = (nextIndex + floorPhotos.length) % floorPhotos.length;
             const photo = floorPhotos[activeFloorPhoto];
-            const webpSrc = photo.full.replace(/\.avif$/i, '.webp');
+            const webpSrc = photo.full.replace(/\.avif(\?.*)?$/i, '.webp$1');
 
             mainFrame.setAttribute('data-full', photo.full);
             mainImage.src = webpSrc;
@@ -427,7 +431,11 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         floorThumbs.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => showFloorPhoto(index));
+            thumb.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                showFloorPhoto(index);
+            });
         });
 
         firstFloorGallery.querySelectorAll('[data-floor-direction]').forEach((button) => {
