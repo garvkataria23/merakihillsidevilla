@@ -67,7 +67,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="media/images/hero-1280.avif?v=2" fetchpriority="high" type="image/avif">
     
-    <link rel="stylesheet" href="style.css?v=78">
+    <link rel="stylesheet" href="style.css?v=79">
 
     <!-- LodgingBusiness JSON-LD -->
     <script type="application/ld+json">
@@ -896,12 +896,15 @@
                             <small>Have questions? We're just a message away.</small>
                         </div>
                         <div class="villa-reel-card" aria-label="Meraki Hillside Villa short reel">
+                            <video class="villa-reel-card__bg" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+                                <source src="https://videos.merakihillsidevilla.in/WhatsApp%20Video%202026-09-12%20at%201.16.30%20AM.mp4" type="video/mp4">
+                            </video>
                             <div>
                                 <span class="villa-reel-card__eyebrow">SHORT REEL</span>
                                 <strong>Quick Villa Glimpse</strong>
                                 <small>Pool, interiors and hillside views in one short reel.</small>
                             </div>
-                            <video controls playsinline preload="metadata" poster="media/images/pool-lifestyle-1280.jpg?v=1">
+                            <video class="villa-reel-card__main" controls playsinline preload="metadata" poster="media/images/pool-lifestyle-1280.jpg?v=1">
                                 <source src="https://videos.merakihillsidevilla.in/WhatsApp%20Video%202026-09-12%20at%201.16.30%20AM.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
