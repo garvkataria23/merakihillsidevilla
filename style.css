@@ -10792,31 +10792,31 @@ p:last-child {
   .ssense-floating-cta {
     left: max(10px, env(safe-area-inset-left)) !important;
     right: max(10px, env(safe-area-inset-right)) !important;
-    bottom: max(6px, env(safe-area-inset-bottom)) !important;
+    bottom: max(7px, env(safe-area-inset-bottom)) !important;
     max-width: calc(100vw - 20px - env(safe-area-inset-left) - env(safe-area-inset-right)) !important;
-    gap: 2px !important;
-    padding: 3px !important;
+    gap: 3px !important;
+    padding: 4px !important;
   }
 
   .ssense-floating-cta a {
-    min-height: 30px !important;
+    min-height: 38px !important;
     padding-inline: 2px !important;
-    font-size: 0.56rem !important;
+    font-size: 0.55rem !important;
     letter-spacing: 0.03em !important;
   }
 
   .ssense-floating-cta .fb-icon svg {
-    width: 18px !important;
-    height: 18px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   .ssense-floating-cta a.ssense-floating-cta__book {
-    padding-inline: 5px !important;
-    font-size: 0.56rem !important;
+    padding-inline: 7px !important;
+    font-size: 0.54rem !important;
   }
 
   body {
-    padding-bottom: calc(52px + env(safe-area-inset-bottom)) !important;
+    padding-bottom: calc(70px + env(safe-area-inset-bottom)) !important;
   }
 }
 
