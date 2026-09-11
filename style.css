@@ -10908,9 +10908,11 @@ p:last-child {
 @media (max-width: 600px) {
   .villa-reel-card {
     display: block !important;
-    gap: 0.85rem !important;
-    padding: 0.8rem !important;
+    width: min(68vw, 230px) !important;
+    margin: 1rem auto 0 !important;
+    padding: 0.55rem !important;
     min-height: auto !important;
+    border-radius: 14px !important;
   }
 
   .villa-reel-card::after,
@@ -10919,13 +10921,13 @@ p:last-child {
   }
 
   .villa-reel-card > div {
-    margin-bottom: 0.8rem !important;
-    padding: 0.85rem !important;
+    margin-bottom: 0.55rem !important;
+    padding: 0.62rem !important;
   }
 
   .villa-reel-card__main {
     position: static !important;
-    width: min(68vw, 230px) !important;
+    width: 100% !important;
     height: auto !important;
     aspect-ratio: 9 / 16 !important;
     max-height: min(42vh, 330px) !important;
