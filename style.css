@@ -2056,6 +2056,50 @@ p:last-child {
   color: var(--text-secondary);
 }
 
+.villa-reel-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.42fr);
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.4rem;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 16px 45px rgba(28, 24, 20, 0.08);
+}
+
+.villa-reel-card__eyebrow,
+.villa-reel-card small {
+  display: block;
+  color: var(--text-secondary);
+}
+
+.villa-reel-card__eyebrow {
+  margin-bottom: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.villa-reel-card strong {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  line-height: 1.05;
+  margin-bottom: 0.35rem;
+}
+
+.villa-reel-card video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 360px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #111;
+}
+
 .video-tour__benefits {
   position: relative;
   padding-top: 1.8rem;
@@ -10822,6 +10866,16 @@ p:last-child {
 
 /* Footer head office block — match the footer contact rows on mobile. */
 @media (max-width: 600px) {
+  .villa-reel-card {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+    padding: 0.8rem !important;
+  }
+
+  .villa-reel-card video {
+    max-height: min(58vh, 420px) !important;
+  }
+
   .footer__office {
     grid-template-columns: 32px 1fr !important;
     min-width: 0;
