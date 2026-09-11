@@ -4250,9 +4250,9 @@ p:last-child {
   opacity: 0.78;
 }
 
-.contact-action-card--whatsapp .contact-action-card__image { background-image: url('media/images/living-room-800.webp'); }
-.contact-action-card--call .contact-action-card__image { background-image: url('media/images/balcony-view-800.webp'); }
-.contact-action-card--directions .contact-action-card__image { background-image: url('media/images/garden-800.webp'); }
+.contact-action-card--whatsapp .contact-action-card__image { background-image: url('media/images/living-room-800.webp?v=2'); }
+.contact-action-card--call .contact-action-card__image { background-image: url('media/images/balcony-view-800.webp?v=2'); }
+.contact-action-card--directions .contact-action-card__image { background-image: url('media/images/garden-800.webp?v=2'); }
 
 .contact-action-card:hover {
   transform: translateY(-5px);
@@ -4407,7 +4407,7 @@ p:last-child {
   padding: clamp(4rem, 7vw, 6.5rem) 0 2.2rem;
   background:
     linear-gradient(90deg, rgba(18, 30, 21, 0.97), rgba(18, 30, 21, 0.88)),
-    url('media/images/night-1280.webp') center / cover;
+    url('media/images/night-1280.webp?v=2') center / cover;
 }
 
 .footer__main::before {
@@ -5183,9 +5183,9 @@ p:last-child {
   background-position: center;
 }
 
-.menu-category--breakfast .menu-category__media { background-image: url('media/images/dining-800.webp'); }
-.menu-category--snacks .menu-category__media { background-image: url('media/images/outdoor-dining-800.webp'); }
-.menu-category--barbecue .menu-category__media { background-image: url('media/images/evening-dining-800.webp'); }
+.menu-category--breakfast .menu-category__media { background-image: url('media/images/dining-800.webp?v=2'); }
+.menu-category--snacks .menu-category__media { background-image: url('media/images/outdoor-dining-800.webp?v=2'); }
+.menu-category--barbecue .menu-category__media { background-image: url('media/images/evening-dining-800.webp?v=2'); }
 
 .menu-category__head {
   display: grid;
@@ -5747,7 +5747,7 @@ p:last-child {
   flex-direction: column;
   justify-content: flex-end;
   padding: clamp(1.25rem, 2vw, 1.8rem);
-  background: linear-gradient(155deg, rgba(47, 70, 52, 0.98), rgba(24, 45, 31, 0.98)), url('media/images/dining-800.webp') center/cover;
+  background: linear-gradient(155deg, rgba(47, 70, 52, 0.98), rgba(24, 45, 31, 0.98)), url('media/images/dining-800.webp?v=2') center/cover;
   color: #fff;
 }
 

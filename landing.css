@@ -102,7 +102,7 @@ h1 {
 .photo {
   min-height: 420px;
   border-radius: 24px;
-  background: linear-gradient(rgba(28, 24, 20, 0.2), rgba(28, 24, 20, 0.2)), url('media/images/hero-1280.avif') center/cover;
+  background: linear-gradient(rgba(28, 24, 20, 0.2), rgba(28, 24, 20, 0.2)), url('media/images/hero-1280.avif?v=2') center/cover;
   box-shadow: 0 24px 70px rgba(28, 24, 20, 0.16);
 }
 
