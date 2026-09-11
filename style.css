@@ -10925,10 +10925,12 @@ p:last-child {
 
   .villa-reel-card__main {
     position: static !important;
-    width: 100% !important;
+    width: min(68vw, 230px) !important;
     height: auto !important;
     aspect-ratio: 9 / 16 !important;
-    max-height: min(58vh, 420px) !important;
+    max-height: min(42vh, 330px) !important;
+    display: block !important;
+    margin: 0 auto !important;
   }
 
   .footer__office {
