@@ -10907,33 +10907,58 @@ p:last-child {
 /* Footer head office block — match the footer contact rows on mobile. */
 @media (max-width: 600px) {
   .villa-reel-card {
+    position: relative !important;
     display: block !important;
     width: 100% !important;
     margin: 1rem 0 0 !important;
-    padding: 0.55rem !important;
+    padding: 0.75rem !important;
+    height: clamp(180px, 48vw, 240px) !important;
     min-height: auto !important;
     border-radius: 14px !important;
+    overflow: hidden !important;
   }
 
-  .villa-reel-card::after,
+  .villa-reel-card::after {
+    display: block !important;
+    background: linear-gradient(180deg, rgba(8, 8, 8, 0.62), rgba(8, 8, 8, 0.16) 52%, rgba(8, 8, 8, 0.3)) !important;
+  }
+
   .villa-reel-card__bg {
     display: none !important;
   }
 
   .villa-reel-card > div {
-    margin-bottom: 0.55rem !important;
-    padding: 0.62rem !important;
+    position: relative !important;
+    z-index: 3 !important;
+    margin-bottom: 0 !important;
+    padding: 0.58rem !important;
+    background: linear-gradient(90deg, rgba(8, 8, 8, 0.46), rgba(8, 8, 8, 0.04)) !important;
+  }
+
+  .villa-reel-card__eyebrow {
+    font-size: 0.58rem !important;
+  }
+
+  .villa-reel-card strong {
+    font-size: 1.28rem !important;
+  }
+
+  .villa-reel-card small {
+    font-size: 0.78rem !important;
   }
 
   .villa-reel-card__main {
-    position: static !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
     width: 100% !important;
-    height: clamp(150px, 34vw, 210px) !important;
+    height: 100% !important;
     aspect-ratio: auto !important;
     max-height: none !important;
+    border-radius: inherit !important;
     object-fit: cover !important;
     display: block !important;
-    margin: 0 auto !important;
+    margin: 0 !important;
   }
 
   .footer__office {
