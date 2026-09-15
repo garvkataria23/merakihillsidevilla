@@ -11131,7 +11131,7 @@ p:last-child {
 .gallery__more {
   display: flex !important;
   width: 100% !important;
-  margin-top: 0.45rem !important;
+  margin-top: 0.65rem !important;
   margin-bottom: 0 !important;
   justify-content: flex-end !important;
   text-align: right !important;
@@ -11150,14 +11150,14 @@ p:last-child {
 .gallery__mobile-more .gallery__cta-btn {
   display: inline-flex !important;
   width: auto !important;
-  height: 1in !important;
+  height: 42px !important;
   max-width: max-content !important;
   aspect-ratio: auto !important;
   min-height: 0 !important;
   min-width: 0 !important;
-  padding: 0 2.1rem !important;
+  padding: 0 1.45rem !important;
   border-radius: 999px !important;
-  font-size: 1rem !important;
+  font-size: 0.78rem !important;
   line-height: 1 !important;
   margin-left: auto !important;
   margin-right: 0 !important;
@@ -11195,9 +11195,7 @@ p:last-child {
   }
 
   .gallery__item--hero .gallery__caption-link {
-    position: absolute;
-    left: 0;
-    bottom: -54px;
+    display: none !important;
   }
 
   .gallery__more {
