@@ -11086,6 +11086,10 @@ p:last-child {
   grid-column: 1 / -1 !important;
 }
 
+.gallery__mobile-more {
+  display: none !important;
+}
+
 .gallery__more .btn {
   display: inline-flex !important;
   margin-left: auto !important;
@@ -11094,14 +11098,19 @@ p:last-child {
 
 @media (max-width: 700px) {
   .gallery__more {
+    display: none !important;
+  }
+
+  .gallery__mobile-more {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
-    margin-top: 1rem !important;
+    padding: 1rem 0 1.25rem !important;
+    margin: 0 !important;
     text-align: center !important;
   }
 
-  .gallery__more .btn {
+  .gallery__mobile-more .btn {
     margin-inline: auto !important;
   }
 }
