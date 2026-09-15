@@ -11132,7 +11132,7 @@ p:last-child {
   display: flex !important;
   width: 100% !important;
   margin-top: -0.9rem !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 1in !important;
   justify-content: flex-end !important;
   text-align: right !important;
 }
@@ -11150,14 +11150,14 @@ p:last-child {
 .gallery__mobile-more .gallery__cta-btn {
   display: inline-flex !important;
   width: auto !important;
-  height: 42px !important;
+  height: 0.5in !important;
   max-width: max-content !important;
   aspect-ratio: auto !important;
   min-height: 0 !important;
   min-width: 0 !important;
-  padding: 0 1.45rem !important;
+  padding: 0 2rem !important;
   border-radius: 999px !important;
-  font-size: 0.78rem !important;
+  font-size: 0.9rem !important;
   line-height: 1 !important;
   margin-left: auto !important;
   margin-right: 0 !important;
