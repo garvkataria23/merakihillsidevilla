@@ -1893,17 +1893,73 @@ p:last-child {
 }
 
 .gallery__item--hero .caption-title::before {
-  content: 'View Full Image';
-  display: inline-block;
-  margin-right: 1rem;
-  padding: 0.65rem 1rem;
+  content: none;
+}
+
+.gallery__caption-bottom {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+
+.gallery__caption-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.68rem 1.15rem;
   border-radius: 999px;
-  background: rgba(12, 11, 9, 0.52);
+  background: #2F4634;
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 0.75rem;
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: none;
+  pointer-events: auto;
+  box-shadow: 0 10px 24px rgba(12, 11, 9, 0.24);
+}
+
+.gallery__item:not(.gallery__item--hero) > .gallery__caption-link {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .gallery__caption-bottom {
+    gap: 0.65rem;
+  }
+
+  .gallery__caption-link {
+    min-height: 38px;
+    padding: 0.62rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .gallery__editorial-grid {
+    padding-bottom: 2.4rem !important;
+  }
+
+  .gallery__editorial-grid > .gallery__item:not(.gallery__item--hero) {
+    overflow: visible;
+  }
+
+  .gallery__editorial-grid > .gallery__item:not(.gallery__item--hero) picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .gallery__item:not(.gallery__item--hero) > .gallery__caption-link {
+    display: inline-flex;
+    position: absolute;
+    left: 0;
+    bottom: -38px;
+    z-index: 3;
+  }
 }
 
 .gallery__item--hero::after {
@@ -11075,7 +11131,7 @@ p:last-child {
 .gallery__more {
   display: flex !important;
   width: 100% !important;
-  margin-top: clamp(1rem, 2vw, 1.6rem) !important;
+  margin-top: 0.45rem !important;
   margin-bottom: 0 !important;
   justify-content: flex-end !important;
   text-align: right !important;
@@ -11090,13 +11146,63 @@ p:last-child {
   display: none !important;
 }
 
-.gallery__more .btn {
+.gallery__more .gallery__cta-btn,
+.gallery__mobile-more .gallery__cta-btn {
   display: inline-flex !important;
+  width: auto !important;
+  height: auto !important;
+  inline-size: auto !important;
+  block-size: auto !important;
+  max-width: max-content !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  min-height: 44px !important;
+  min-width: 0 !important;
+  padding: 0.72rem 1.35rem !important;
+  border-radius: 999px !important;
+  font-size: 0.82rem !important;
+  line-height: 1 !important;
   margin-left: auto !important;
   margin-right: 0 !important;
 }
 
 @media (max-width: 700px) {
+  .gallery.section {
+    padding-bottom: 0 !important;
+  }
+
+  .gallery__editorial-grid {
+    grid-template-rows: 385px !important;
+  }
+
+  .gallery__editorial-grid > .gallery__item--hero {
+    height: 385px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .gallery__editorial-grid > .gallery__item--hero picture {
+    display: block;
+    height: 330px;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 16px 42px rgba(28, 24, 20, 0.08);
+  }
+
+  .gallery__editorial-grid > .gallery__item--hero img {
+    height: 100% !important;
+  }
+
+  .gallery__item--hero .gallery__caption {
+    bottom: 55px;
+  }
+
+  .gallery__item--hero .gallery__caption-link {
+    position: absolute;
+    left: 0;
+    bottom: -54px;
+  }
+
   .gallery__more {
     display: none !important;
   }
@@ -11105,12 +11211,17 @@ p:last-child {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
-    padding: 1rem 0 1.25rem !important;
+    padding: 0.45rem 0 0 !important;
     margin: 0 !important;
     text-align: center !important;
   }
 
-  .gallery__mobile-more .btn {
+  .gallery__mobile-more .gallery__cta-btn {
+    min-height: 42px !important;
+    padding: 0.68rem 1.2rem !important;
+    border-radius: 999px !important;
+    font-size: 0.78rem !important;
+    line-height: 1 !important;
     margin-inline: auto !important;
   }
 }

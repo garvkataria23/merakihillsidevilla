@@ -315,6 +315,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    document.querySelectorAll('.gallery__item').forEach((item) => {
+        if (item.querySelector('.gallery__caption-link')) return;
+
+        const link = document.createElement('a');
+        link.className = 'gallery__caption-link';
+        link.href = 'gallery/';
+        link.innerHTML = 'View Full Gallery &rarr;';
+        item.appendChild(link);
+    });
+
     // =========================================
     // 14. Subtle 3D Card Tilt Effect (Desktop Mouse Only)
     // =========================================
