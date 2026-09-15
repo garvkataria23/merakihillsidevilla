@@ -20,7 +20,7 @@
     </image:image>
     <image:image>
       <image:loc>https://merakihillsidevilla.in/media/images/bedroom-1280.avif</image:loc>
-      <image:title>Bedroom Suite at Meraki Hillside Villa Panchgani</image:title>
+      <image:title>Bedroom at Meraki Hillside Villa Panchgani</image:title>
     </image:image>
     <image:image>
       <image:loc>https://merakihillsidevilla.in/media/images/kitchen-1280.avif</image:loc>
@@ -38,6 +38,12 @@
       <image:loc>https://merakihillsidevilla.in/media/images/night-1280.avif</image:loc>
       <image:title>Meraki Hillside Villa Night View Panchgani</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://merakihillsidevilla.in/gallery/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://merakihillsidevilla.in/4bhk-villa-panchgani/</loc>
