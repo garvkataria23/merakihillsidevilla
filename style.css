@@ -1675,7 +1675,7 @@ p:last-child {
 .gallery {
   position: relative;
   overflow: hidden;
-  padding-bottom: clamp(2rem, 3.5vw, 3rem);
+  padding-bottom: clamp(1rem, 2vw, 1.8rem);
   background:
     radial-gradient(circle at 6% 16%, rgba(47, 70, 52, 0.07), transparent 18rem),
     radial-gradient(circle at 92% 6%, rgba(139, 115, 85, 0.08), transparent 20rem),
@@ -1838,9 +1838,7 @@ p:last-child {
 }
 
 .gallery__more {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  display: block;
   gap: 0.85rem;
   width: 100%;
   margin-top: clamp(1rem, 2vw, 1.6rem);
@@ -1848,7 +1846,8 @@ p:last-child {
 }
 
 .gallery__more .btn {
-  margin-left: auto;
+  margin-left: auto !important;
+  margin-right: 0 !important;
 }
 
 .gallery__more small {
@@ -1866,7 +1865,7 @@ p:last-child {
   }
 
   .gallery__more .btn {
-    margin-inline: auto;
+    margin-inline: auto !important;
   }
 }
 
@@ -11065,5 +11064,35 @@ p:last-child {
 
   .navbar__container {
     padding-inline: 0.95rem !important;
+  }
+}
+
+/* Final gallery CTA positioning overrides */
+.gallery.section {
+  padding-bottom: 0 !important;
+}
+
+.gallery__more {
+  display: block !important;
+  width: 100% !important;
+  margin-top: clamp(1rem, 2vw, 1.6rem) !important;
+  text-align: right !important;
+}
+
+.gallery__more .btn {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+@media (max-width: 700px) {
+  .gallery__more {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .gallery__more .btn {
+    margin-inline: auto !important;
   }
 }
