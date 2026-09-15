@@ -11169,7 +11169,9 @@ p:last-child {
   }
 
   .gallery__editorial-grid {
-    grid-template-rows: 390px !important;
+    grid-template-rows: 410px !important;
+    grid-auto-columns: min(82vw, 344px) !important;
+    align-items: start !important;
   }
 
   .gallery__editorial-grid > .gallery__item,
@@ -11177,16 +11179,22 @@ p:last-child {
   .gallery__editorial-grid > .gallery__item--wide,
   .gallery__editorial-grid > .gallery__item--tall,
   .gallery__editorial-grid > .gallery__video-card {
-    height: 390px !important;
+    display: grid !important;
+    grid-template-rows: 330px auto !important;
+    row-gap: 0.8rem !important;
+    height: 410px !important;
     overflow: visible !important;
     background: transparent !important;
     border-radius: 0 !important;
     box-shadow: none !important;
+    position: relative !important;
   }
 
   .gallery__editorial-grid > .gallery__item picture,
   .gallery__editorial-grid > .gallery__item .gallery__image-cover {
     display: block !important;
+    grid-row: 1 !important;
+    width: 100% !important;
     height: 330px !important;
     overflow: hidden !important;
     border-radius: 14px !important;
@@ -11194,7 +11202,9 @@ p:last-child {
   }
 
   .gallery__editorial-grid > .gallery__item img {
+    width: 100% !important;
     height: 100% !important;
+    object-fit: cover !important;
     border-radius: 14px !important;
   }
 
@@ -11217,9 +11227,12 @@ p:last-child {
 
   .gallery__caption,
   .gallery__item--hero .gallery__caption {
+    grid-row: 2 !important;
     position: static !important;
     inset: auto !important;
-    padding: 0.65rem 0 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
     background: transparent !important;
     display: block !important;
     text-shadow: none !important;
@@ -11239,9 +11252,13 @@ p:last-child {
 
   .caption-title {
     display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
     color: #2f4634 !important;
     font-size: 1rem !important;
     line-height: 1.3 !important;
+    white-space: normal !important;
+    overflow: visible !important;
     text-shadow: none !important;
   }
 
