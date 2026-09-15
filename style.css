@@ -11205,21 +11205,6 @@ p:last-child {
   }
 
   .gallery__mobile-more {
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
-    margin: 0.5in 0 0 !important;
-    padding: 0 0 0.75rem !important;
-    text-align: center !important;
-  }
-
-  .gallery__mobile-more .gallery__cta-btn {
-    height: auto !important;
-    min-height: 44px !important;
-    padding: 0.8rem 1.4rem !important;
-    border-radius: 999px !important;
-    font-size: 0.82rem !important;
-    line-height: 1 !important;
-    margin-inline: auto !important;
+    display: none !important;
   }
 }
