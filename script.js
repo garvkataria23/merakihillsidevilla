@@ -272,7 +272,84 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 13. Location Category Filter Buttons
+    // 13. Extra Villa Gallery Photos
+    // =========================================
+    const extraGalleryPhotos = [
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.36 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.36 AM (2).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.36 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.37 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.37 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.38 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.38 AM (2).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.38 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.39 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.39 AM (2).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.39 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.40 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.51.40 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.54.49 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.54.49 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.54.50 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.54.50 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 10.54.51 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.05.01 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.03 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.03 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.04 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.04 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.05 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.05 AM (2).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.05 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.06 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.07.06 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.26.50 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.26.52 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.26.56 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.26.56 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.27.31 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.27.54 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.01 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.02 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.15 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.16 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.21 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.21 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.22 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.22 AM (2).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.22 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.24 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.24 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.25 AM (1).jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.28.25 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.36.32 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.36.35 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.36.41 AM.jpeg',
+        'pictures/WhatsApp Image 2026-09-03 at 9.36.42 AM.jpeg'
+    ];
+
+    const galleryGrid = document.querySelector('.gallery__editorial-grid');
+    if (galleryGrid) {
+        extraGalleryPhotos.forEach((src, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery__item zoom-in fade-in filter-item all';
+            item.dataset.full = src;
+            item.dataset.index = String(100 + index);
+            item.innerHTML = `
+                <picture>
+                    <img src="${src}" alt="Meraki Hillside Villa photo ${index + 1}" loading="lazy" decoding="async" width="1200" height="900">
+                </picture>
+                <div class="gallery__caption">
+                    <span class="caption-tag">VILLA PHOTO</span>
+                    <span class="caption-title">Meraki Moment ${index + 1}</span>
+                </div>
+            `;
+            galleryGrid.appendChild(item);
+        });
+    }
+
+    // =========================================
+    // 14. Location Category Filter Buttons
     // =========================================
     const filterBtns = document.querySelectorAll('.filter-btn');
     const filterItems = document.querySelectorAll('.filter-item');
@@ -316,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================
-    // 14. Subtle 3D Card Tilt Effect (Desktop Mouse Only)
+    // 15. Subtle 3D Card Tilt Effect (Desktop Mouse Only)
     // =========================================
     const tiltCards = document.querySelectorAll('.tilt-card');
     if (window.innerWidth > 1024) {
