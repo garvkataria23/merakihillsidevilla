@@ -11131,7 +11131,7 @@ p:last-child {
 .gallery__more {
   display: flex !important;
   width: 100% !important;
-  margin-top: 0.65rem !important;
+  margin-top: -0.9rem !important;
   margin-bottom: 0 !important;
   justify-content: flex-end !important;
   text-align: right !important;
