@@ -11262,3 +11262,10 @@ p:last-child {
     display: none !important;
   }
 }
+
+@media (max-width: 900px) {
+  .gallery__more,
+  .gallery__mobile-more {
+    display: none !important;
+  }
+}
