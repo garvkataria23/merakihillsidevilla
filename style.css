@@ -11073,13 +11073,21 @@ p:last-child {
 }
 
 .gallery__more {
-  display: block !important;
+  display: flex !important;
   width: 100% !important;
   margin-top: clamp(1rem, 2vw, 1.6rem) !important;
+  margin-bottom: 0 !important;
+  justify-content: flex-end !important;
   text-align: right !important;
 }
 
+.gallery__more--full-row {
+  clear: both !important;
+  grid-column: 1 / -1 !important;
+}
+
 .gallery__more .btn {
+  display: inline-flex !important;
   margin-left: auto !important;
   margin-right: 0 !important;
 }
@@ -11089,6 +11097,7 @@ p:last-child {
     display: flex !important;
     justify-content: center !important;
     width: 100% !important;
+    margin-top: 1rem !important;
     text-align: center !important;
   }
 
