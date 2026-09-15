@@ -11169,11 +11169,36 @@ p:last-child {
   }
 
   .gallery__editorial-grid {
-    grid-template-rows: 330px !important;
+    grid-template-rows: 390px !important;
+  }
+
+  .gallery__editorial-grid > .gallery__item,
+  .gallery__editorial-grid > .gallery__item--hero,
+  .gallery__editorial-grid > .gallery__item--wide,
+  .gallery__editorial-grid > .gallery__item--tall,
+  .gallery__editorial-grid > .gallery__video-card {
+    height: 390px !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .gallery__editorial-grid > .gallery__item picture,
+  .gallery__editorial-grid > .gallery__item .gallery__image-cover {
+    display: block !important;
+    height: 330px !important;
+    overflow: hidden !important;
+    border-radius: 14px !important;
+    box-shadow: 0 16px 42px rgba(28, 24, 20, 0.08) !important;
+  }
+
+  .gallery__editorial-grid > .gallery__item img {
+    height: 100% !important;
+    border-radius: 14px !important;
   }
 
   .gallery__editorial-grid > .gallery__item--hero {
-    height: 330px !important;
     background: transparent !important;
     box-shadow: none !important;
   }
@@ -11190,8 +11215,34 @@ p:last-child {
     height: 100% !important;
   }
 
+  .gallery__caption,
   .gallery__item--hero .gallery__caption {
-    bottom: 0;
+    position: static !important;
+    inset: auto !important;
+    padding: 0.65rem 0 0 !important;
+    background: transparent !important;
+    display: block !important;
+    text-shadow: none !important;
+    pointer-events: none !important;
+  }
+
+  .caption-tag {
+    position: absolute !important;
+    top: 1rem !important;
+    left: 1rem !important;
+    z-index: 2 !important;
+  }
+
+  .gallery__caption-bottom {
+    display: block !important;
+  }
+
+  .caption-title {
+    display: block !important;
+    color: #2f4634 !important;
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+    text-shadow: none !important;
   }
 
   .gallery__item--hero .gallery__caption-link {
