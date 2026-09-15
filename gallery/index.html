@@ -12,14 +12,16 @@
     * { box-sizing:border-box; }
     body { margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, sans-serif; background:#fbfaf7; color:var(--ink); }
     a { color:inherit; }
-    .site-header { position:sticky; top:0; z-index:20; background:rgba(250,248,245,.96); border-bottom:1px solid rgba(47,70,52,.12); backdrop-filter:blur(16px); }
-    .site-header__inner { width:min(1400px,calc(100% - 2rem)); min-height:78px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+    .site-header { position:sticky; top:0; z-index:20; background:#fffdfb; border-top:4px solid #4a2c24; border-bottom:1px solid rgba(47,70,52,.1); }
+    .site-header__inner { width:min(1800px,calc(100% - 3rem)); min-height:116px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:2rem; }
     .site-header__logo { display:flex; align-items:center; text-decoration:none; }
-    .site-header__logo img { width:122px; height:auto; display:block; }
-    .site-header__nav { display:flex; align-items:center; justify-content:center; gap:1.35rem; color:#4f493f; font-size:.72rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
-    .site-header__nav a { text-decoration:none; white-space:nowrap; }
+    .site-header__logo img { width:170px; height:auto; display:block; }
+    .site-header__nav { display:flex; align-items:center; justify-content:center; gap:1.95rem; color:#2f4634; font-size:1rem; font-weight:800; letter-spacing:.01em; }
+    .site-header__nav a { position:relative; padding:.35rem 0 1.65rem; text-decoration:none; white-space:nowrap; }
+    .site-header__nav a::after { content:''; position:absolute; left:0; right:0; bottom:.4rem; height:2px; background:transparent; }
+    .site-header__nav a.active::after { background:#2f4634; }
     .site-header__nav a.active { color:var(--green); }
-    .site-header__cta { padding:.78rem 1.15rem; border-radius:999px; background:#25d366; color:#fff; text-decoration:none; font-size:.72rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; box-shadow:0 10px 24px rgba(37,211,102,.22); }
+    .site-header__cta { padding:1.45rem 2.15rem; border-radius:999px; background:#2f4634; color:#fff; text-decoration:none; font-size:1.05rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; }
     .gallery-hero { position:relative; min-height:300px; display:grid; place-items:center; overflow:hidden; color:#fff; text-align:center; background:#273326; }
     .gallery-hero::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(20,28,18,.44),rgba(20,28,18,.06),rgba(20,28,18,.38)), url('../media/images/balcony-view-960.avif?v=2') center/cover; filter:saturate(.9); transform:scale(1.02); }
     .gallery-hero__content { position:relative; z-index:1; padding:3rem 1rem; }
@@ -85,7 +87,8 @@
     .lightbox__next { right:clamp(1rem,4vw,3rem); }
     .lightbox__count { position:absolute; left:50%; bottom:1.2rem; transform:translateX(-50%); padding:.55rem .9rem; border-radius:999px; background:rgba(255,255,255,.9); color:var(--green); font-size:.72rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
     @media (max-width: 900px) { .gallery-script,.gallery-side { display:none; } .gallery-shell { width:calc(100% - 1.2rem); } .toolbar { justify-content:center; flex-wrap:wrap; } .full-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } .gallery-hero { min-height:240px; } }
-    @media (max-width: 900px) { .site-header__inner { min-height:auto; padding:.7rem 0; flex-wrap:wrap; justify-content:center; } .site-header__nav { order:3; width:100%; justify-content:flex-start; overflow-x:auto; gap:1rem; padding:.35rem 0 .1rem; } .site-header__logo img { width:105px; } }
+    @media (max-width: 1100px) { .site-header__nav { gap:1rem; font-size:.86rem; } .site-header__cta { padding:1rem 1.35rem; font-size:.82rem; } .site-header__logo img { width:140px; } }
+    @media (max-width: 900px) { .site-header__inner { width:calc(100% - 1.2rem); min-height:auto; padding:.8rem 0; flex-wrap:wrap; justify-content:center; } .site-header__nav { order:3; width:100%; justify-content:flex-start; overflow-x:auto; gap:1.15rem; padding:.35rem 0 .1rem; } .site-header__nav a { padding:.3rem 0 1rem; } .site-header__nav a::after { bottom:.2rem; } .site-header__logo img { width:115px; } }
     @media (max-width: 900px) { .video-tour__inner,.footer__grid { grid-template-columns:1fr; } .footer__links { grid-template-columns:1fr; } }
     @media (max-width: 560px) { .full-gallery { gap:.55rem; } .full-gallery__item { border-radius:10px; } .filters { justify-content:flex-start; overflow-x:auto; flex-wrap:nowrap; padding-bottom:.35rem; } .filter-btn { flex:0 0 auto; } .lightbox__nav { display:none; } .lightbox img { max-width:96vw; max-height:82vh; } }
   </style>
@@ -100,9 +103,13 @@
         <a href="../">Home</a>
         <a href="../#villa">The Villa</a>
         <a class="active" href="./">Gallery</a>
+        <a href="../#happy-guests">Happy Guests</a>
         <a href="../#amenities">Amenities</a>
         <a href="../#dining">Dining</a>
+        <a href="../#house-rules">Rules</a>
         <a href="../#location">Location</a>
+        <a href="../#reviews">Reviews</a>
+        <a href="../#faq">FAQ</a>
         <a href="../#contact">Contact</a>
       </nav>
       <a class="site-header__cta" href="https://wa.me/917777066774?text=Hi%2C%20I%20viewed%20the%20Meraki%20Hillside%20Villa%20gallery%20and%20want%20to%20enquire." target="_blank" rel="noopener">WhatsApp Us</a>
