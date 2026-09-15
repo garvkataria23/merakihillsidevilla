@@ -1675,6 +1675,7 @@ p:last-child {
 .gallery {
   position: relative;
   overflow: hidden;
+  padding-bottom: clamp(2rem, 3.5vw, 3rem);
   background:
     radial-gradient(circle at 6% 16%, rgba(47, 70, 52, 0.07), transparent 18rem),
     radial-gradient(circle at 92% 6%, rgba(139, 115, 85, 0.08), transparent 20rem),
@@ -1841,8 +1842,13 @@ p:last-child {
   flex-direction: column;
   align-items: flex-end;
   gap: 0.85rem;
-  margin-top: clamp(1.8rem, 4vw, 3rem);
+  width: 100%;
+  margin-top: clamp(1rem, 2vw, 1.6rem);
   text-align: right;
+}
+
+.gallery__more .btn {
+  margin-left: auto;
 }
 
 .gallery__more small {
@@ -1851,8 +1857,16 @@ p:last-child {
 
 @media (max-width: 700px) {
   .gallery__more {
+    display: flex;
+    width: 100%;
     align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
     text-align: center;
+  }
+
+  .gallery__more .btn {
+    margin-inline: auto;
   }
 }
 
