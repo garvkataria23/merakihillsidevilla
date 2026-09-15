@@ -11169,11 +11169,11 @@ p:last-child {
   }
 
   .gallery__editorial-grid {
-    grid-template-rows: 385px !important;
+    grid-template-rows: 330px !important;
   }
 
   .gallery__editorial-grid > .gallery__item--hero {
-    height: 385px !important;
+    height: 330px !important;
     background: transparent !important;
     box-shadow: none !important;
   }
@@ -11191,7 +11191,7 @@ p:last-child {
   }
 
   .gallery__item--hero .gallery__caption {
-    bottom: 55px;
+    bottom: 0;
   }
 
   .gallery__item--hero .gallery__caption-link {
