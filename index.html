@@ -260,7 +260,7 @@
     }
     </script>
 
-    <!-- VacationRental JSON-LD Schema -->
+    <!-- VacationRental JSON-LD Schema (Google Holiday Rental Rich Results) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -270,13 +270,18 @@
       "description": "Private luxury 4BHK hillside villa in Khingar, Panchgani with dam views, cliffside infinity pool, and in-house cook for up to 16 guests.",
       "url": "https://merakihillsidevilla.in",
       "identifier": "MERAKI-PANCHGANI-4BHK",
-      "numberOfRooms": 4,
-      "occupancy": {
-        "@type": "QuantitativeValue",
-        "maxValue": 16,
-        "minValue": 1
-      },
-      "petsAllowed": true,
+      "image": [
+        "https://merakihillsidevilla.in/media/images/hero-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/pool-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/living-room-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/bedroom-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/bedroom2-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/bedroom3-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/kitchen-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/games-room-1280.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/garden-1024.avif?v=2",
+        "https://merakihillsidevilla.in/media/images/night-1280.avif?v=2"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "69/7A/2, Khinger Rd, near Hridaan Villa, Khingar",
@@ -290,14 +295,35 @@
         "latitude": 17.916038,
         "longitude": 73.8217702
       },
-      "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "Private Infinity Pool", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "In-House Cook Meal Service", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "4 Air Conditioned Bedrooms", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Table Tennis & Games Room", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Free High Speed Wi-Fi", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Private Parking for Cars", "value": true }
-      ]
+      "containsPlace": [
+        {
+          "@type": "Accommodation",
+          "name": "Entire 4BHK Private Villa",
+          "description": "Entire 4BHK luxury villa with 4 bedrooms, private cliffside infinity pool, living room, dining area, and private garden for up to 16 guests.",
+          "numberOfRooms": 4,
+          "occupancy": {
+            "@type": "QuantitativeValue",
+            "maxValue": 16,
+            "minValue": 1
+          },
+          "petsAllowed": true,
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Private Infinity Pool", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "In-House Cook Meal Service", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "4 Air Conditioned Bedrooms", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Table Tennis & Games Room", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Free High Speed Wi-Fi", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Private Parking for Cars", "value": true }
+          ]
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.91",
+        "reviewCount": "71",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
     }
     </script>
 </head>
